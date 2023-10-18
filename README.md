@@ -9,9 +9,9 @@
 *Scan against OWASP top-10*
 
 ### TODO
-[X] Setup Project Skeleton
-[X] Start API Specification Type Definition Recognition
-[X] Create SECURITY THREAT CRITICALITY INDEX - LOW, MEDIUM, HIGH, CRITICAL
+[x] Setup Project Skeleton
+[x] Start API Specification Type Definition Recognition
+[x] Create SECURITY THREAT CRITICALITY INDEX - LOW, MEDIUM, HIGH, CRITICAL
 [ ] Start Parsing Definition FILES - Swagger.json for OPENAPI and WSDLs
 [ ] Collate Fixables -> Issues from Results of Parsing
 [ ] Add OWASP-Top-10 LINKS to Fixable Display
