@@ -6,17 +6,33 @@ use crate::parser::*;
 
 const OPEN_API_INFO_STR: &str = "openapi";
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum WeightScore {
-    Minimum(i64),
-    Medium(i64),
-    High(i64),
-    Critical(i64),
+    Low, // 1
+    Medium, // 2
+    High, // 3
+    Critical, //5 or 4
 }
-#[derive(Debug)]
-pub enum FixableType{
+impl WeightScore {
+    pub const LOW_VALUE: u8 = 1;
+    pub const MEDIUM_VALUE: u8 = 2;
+    pub const HIGH_VALUE: u8 = 3;
+    pub const CRITICAL_VALUE: u8 = 4;
+}
+#[derive(Debug, Clone)]
+pub enum FixableType {
     Error,
     Warning, //ignorable...
+}
+impl From<WeightScore> for FixableType {
+    fn from(value: WeightScore) -> Self {
+        match value {
+            WeightScore::Medium | WeightScore::Critical | WeightScore::High => {
+                FixableType::Error
+            }
+            _ => FixableType::Warning,
+        }
+    }
 }
 #[derive(Debug)]
 pub struct Fixable {
@@ -24,6 +40,19 @@ pub struct Fixable {
     line: u64,
     weight_score: WeightScore,
     fixable_type: FixableType,
+}
+impl Fixable {
+    pub fn new(error: impl Into<String>, line: u64, weight_score: WeightScore) -> Self {
+        let error_str = error.into();
+        let fixable_type = weight_score.clone().into();
+
+        Self {
+            error: error_str,
+            line,
+            weight_score,
+            fixable_type,
+        }
+    }
 }
 
 #[derive(Debug)]
@@ -39,35 +68,26 @@ impl Scanner {
             fixables: vec![],
         }
     }
-    // pub fn from_text(open_api_string: &str) -> Self {
-    //     let obj: OpenApi =
-    //         serde_json::from_str(open_api_string).expect("Failed to parse open api json file");
-    //     Scanner {
-    //         open_api: obj,
-    //         fixables: vec![],
-    //     }
-    // }
+    /// Scan an input TEXT for Application Vulnerabilities according to OWASP-Top-10
     pub fn scan(&mut self) -> Result<Vec<Fixable>, ParserError> {
-        let mut fixables: Vec<Fixable> = vec![];
-
         let mut parser = Parser::new(&self.text);
 
         let spec_type: ApiSpecificationType = guess_spec_type_from_text(&self.text);
 
         match parser.parse(&spec_type) {
             Ok(fixes) => Ok(fixes),
-            Err(e) => Err(ParserError::ParseFailed(format!(
-                "error parsing {} type specification {}",
-                spec_type,
-                e
-            ).into())),
-        }  
-        
+            Err(e) => Err(ParserError::ParseFailed(
+                format!("error parsing {} type specification {}", spec_type, e).into(),
+            )),
+        }
     }
-    pub fn display(&mut self) {
+    /// Display the results/output of a scan in the CLI console or API caller in the future
+    pub fn display(&mut self) -> anyhow::Result<()> {
         println!("{:?}", self);
         println!("Here are some discovered security vulnerabilities after scanning code against OWASP-top-10");
         println!("{:?}", self.fixables);
+
+        Ok(())
     }
 }
 
