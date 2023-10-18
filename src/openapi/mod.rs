@@ -4,6 +4,8 @@ use serde_json::Value;
 
 use crate::parser::*;
 
+const OPEN_API_INFO_STR: &str = "openapi";
+
 #[derive(Debug)]
 pub enum WeightScore {
     Minimum(i64),
@@ -11,45 +13,56 @@ pub enum WeightScore {
     High(i64),
     Critical(i64),
 }
-
+#[derive(Debug)]
+pub enum FixableType{
+    Error,
+    Warning, //ignorable...
+}
 #[derive(Debug)]
 pub struct Fixable {
     error: String,
     line: u64,
     weight_score: WeightScore,
+    fixable_type: FixableType,
 }
 
 #[derive(Debug)]
-pub struct Scanner<'a> {
-    open_api: &'a OpenApi,
+pub struct Scanner {
+    //open_api:  OpenApi,
+    text: String,
     fixables: Vec<Fixable>,
 }
-impl<'a> Scanner<'a> {
-    pub fn new(open_api: &'a OpenApi) -> Self {
+impl Scanner {
+    pub fn new(text: impl Into<String>) -> Self {
         Self {
-            open_api,
+            text: text.into(),
             fixables: vec![],
         }
     }
-    pub fn from_text(open_api_string: &'a str) -> Self {
-        let obj: OpenApi =
-            serde_json::from_str(open_api_string).expect("Failed to parse open api json file");
-        Self {
-            open_api: &obj,
-            fixables: vec![],
-        }
-    }
-    pub fn scan(&mut self, text: &'a str) -> Result<Vec<Fixable>, anyhow::Error> {
+    // pub fn from_text(open_api_string: &str) -> Self {
+    //     let obj: OpenApi =
+    //         serde_json::from_str(open_api_string).expect("Failed to parse open api json file");
+    //     Scanner {
+    //         open_api: obj,
+    //         fixables: vec![],
+    //     }
+    // }
+    pub fn scan(&mut self) -> Result<Vec<Fixable>, ParserError> {
         let mut fixables: Vec<Fixable> = vec![];
 
-        let mut parser = Parser::new(text);
+        let mut parser = Parser::new(&self.text);
 
-        let spec_type: ApiSpecificationType = guess_spec_type_from_text(text);
+        let spec_type: ApiSpecificationType = guess_spec_type_from_text(&self.text);
 
-        fixables = match parser.parse(spec_type){
-            Ok(fixes) => fixes,
-            Err(e) => ParserError::ParseFailed("parse failed")
-        }
+        match parser.parse(&spec_type) {
+            Ok(fixes) => Ok(fixes),
+            Err(e) => Err(ParserError::ParseFailed(format!(
+                "error parsing {} type specification {}",
+                spec_type,
+                e
+            ).into())),
+        }  
+        
     }
     pub fn display(&mut self) {
         println!("{:?}", self);
@@ -59,11 +72,11 @@ impl<'a> Scanner<'a> {
 }
 
 fn guess_spec_type_from_text(text: &str) -> ApiSpecificationType {
-    match serde_json::from_str::<&str>(text) {
+    match serde_json::from_str::<Value>(text) {
         Ok(value) => {
             //now search for the open_api info property...
             //openapi
-            if let Some(openapi) = value.get("openapi") {
+            if let Some(_) = value.get(OPEN_API_INFO_STR) {
                 ApiSpecificationType::OpenApiRest
             } else {
                 println!("Unknown Api specification type detected. JSON is not a valid OpenAPI specification.");
@@ -77,7 +90,7 @@ fn guess_spec_type_from_text(text: &str) -> ApiSpecificationType {
             if is_wsdl_spec_v2(text).unwrap() {
                 ApiSpecificationType::SoapWSDL
             } else {
-                println!("Unknown Api specification type detected. XML is not a valid SOAP WSDL specification.");
+                println!("Unknown Api specification type detected. XML is not a valid SOAP WSDL specification. {}", e);
                 ApiSpecificationType::Unknown
             }
         }

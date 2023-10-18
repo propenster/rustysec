@@ -2,7 +2,7 @@ use serde::Deserialize;
 use thiserror::Error;
 extern crate serde_xml_rs;
 
-use std::str::FromStr;
+use std::{str::FromStr, fmt::Display};
 
 use crate::openapi::Fixable;
 use std::error::Error;
@@ -20,6 +20,7 @@ pub enum ParserError{
     ParseFailed(String),
 }
 
+#[derive(Debug)]
 pub enum ApiSpecificationType{
     OpenApiRest,
     SoapWSDL,
@@ -28,6 +29,16 @@ pub enum ApiSpecificationType{
     Unknown,
 
 }
+impl Display for ApiSpecificationType{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self{
+            ApiSpecificationType::OpenApiRest => write!(f, "Open API"),
+            ApiSpecificationType::SoapWSDL => write!(f, "SOAP WSDL"),
+            _ => write!(f, "Unknown")
+        }
+    }
+}
+
 
 #[derive(Debug, Clone)]
 pub struct Parser<'a> {
@@ -46,13 +57,13 @@ impl<'a> Parser<'a>{
         }
     }
 
-    pub fn parse(&mut self, spec_type: ApiSpecificationType) -> Result<Vec<Fixable>, ParserError>{
+    pub fn parse(&mut self, spec_type: &ApiSpecificationType) -> Result<Vec<Fixable>, ParserError>{
         if self.text.is_empty(){
             return Err(ParserError::InvalidInputText)
         }
         let mut fixables: Vec<Fixable> = vec![];
 
-        match spec_type{
+        match *spec_type{
             ApiSpecificationType::OpenApiRest => {
                 fixables = parse_open_api_rest(self.text).unwrap();
                 Ok(fixables)
@@ -75,8 +86,33 @@ fn parse_soap_wsdl(text: &str) -> Result<Vec<Fixable>, ParserError> {
     todo!()
 }
 
+///Use this to parse an OPENAPI specification type document
+/// <br>It takes a string slice of the content of the OPEN Spec a.k.a swagger.json
 fn parse_open_api_rest(text: &str) -> Result<Vec<Fixable>, ParserError> {
-    todo!()
+    let mut fixables: Vec<Fixable> = Vec::new();
+
+    //grabables
+
+    //INFO -> Nothing too serious => Just nameOfApi and Version
+
+    //SERVERS -> Array [ {"url": ""} ]
+
+    //PATHs -> a.k.a Endpoints -> Object -> has Other objects inside one for each endpoint
+
+    //COMPONENTS -> Logic Objects -> Request Objects' Schemas... containing fields, validation, regex, strings etc
+
+    //SECURITY -> Array of Security Sechemes Objects
+
+
+
+
+
+
+
+
+    Ok(fixables)
+
+
 }
 // pub fn is_wsdl_spec(xml_str: &str) -> Result<bool, serde_xml_rs::Error> {
 //     let definitions: Definitions = serde_xml_rs::from_str(xml_str).expect("Could not parse xml file");
