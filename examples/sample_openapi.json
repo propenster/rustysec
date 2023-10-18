@@ -1,0 +1,514 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Mango API",
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "https://localhost:7199"
+      }
+    ],
+    "paths": {
+      "/WeatherForecast/mangoes/all": {
+        "get": {
+          "tags": [
+            "WeatherForecast"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoesResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoesResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoesResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "406": {
+              "description": "Not Acceptable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "415": {
+              "description": "Client Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/WeatherForecast/mangoes": {
+        "post": {
+          "tags": [
+            "WeatherForecast"
+          ],
+          "operationId": "Create Mango",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangoDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangoDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MangoResponse"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "406": {
+              "description": "Not Acceptable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "415": {
+              "description": "Client Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DefaultErrorResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "DefaultErrorResponse": {
+          "required": [
+            "error"
+          ],
+          "type": "object",
+          "properties": {
+            "error": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "MangoDto": {
+          "required": [
+            "description",
+            "membershipId",
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "description": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "membershipId": {
+              "maxLength": 7,
+              "minLength": 7,
+              "pattern": "^[0-9]{7}",
+              "type": "string"
+            },
+            "amount": {
+              "maximum": 9999999,
+              "minimum": 1000,
+              "type": "number",
+              "format": "double"
+            },
+            "serialNo": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "additionalProperties": false
+        },
+        "MangoResponse": {
+          "required": [
+            "createdAt",
+            "description",
+            "lastUpdatedAt",
+            "mangoId",
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "mangoId": {
+              "maxLength": 32,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "name": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "description": {
+              "maxLength": 255,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "amount": {
+              "maximum": 9999999,
+              "minimum": 1000,
+              "type": "number",
+              "format": "double"
+            },
+            "serialNo": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64"
+            },
+            "createdAt": {
+              "maxLength": 55,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            },
+            "lastUpdatedAt": {
+              "maxLength": 55,
+              "minLength": 1,
+              "pattern": "^(.?)",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "MangoesResponse": {
+          "type": "object",
+          "properties": {
+            "mangoes": {
+              "maxItems": 1000,
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/MangoResponse"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "Bearer": {
+          "type": "http",
+          "description": "Enter JWT Bearer token **_only_**",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "Bearer": [ ]
+      }
+    ]
+  }

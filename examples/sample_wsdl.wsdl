@@ -1,0 +1,3733 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService">
+<types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50006" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50006">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" default="0" name="EntryNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AgentCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoofUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionSubtype" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Reversed" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contributiontype" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Narration" type="string"/>
+</sequence>
+</complexType>
+<complexType name="ClientTransactions" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="ClientTransactions" type="tns:ClientTransactions"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50007" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50007">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="TransactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoofUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DividendPaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionDate" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankName" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankSortCode" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankAccountName" type="string"/>
+</sequence>
+</complexType>
+<complexType name="RedemptionsPushtoBank" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="RedemptionsPushtoBank" type="tns:RedemptionsPushtoBank"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50008" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50008">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="TransactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoofUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="DividendPaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalAmountPayable" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionDate" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankName" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankSortCode" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankAccountName" type="string"/>
+</sequence>
+</complexType>
+<complexType name="PostedTransfers" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="PostedTransfers" type="tns:PostedTransfers"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50012" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50012">
+<complexType name="Client">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="MembershipNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Surname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MailingAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DateofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BVN" type="string"/>
+</sequence>
+</complexType>
+<complexType name="Clients" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Client" type="tns:Client"/>
+</sequence>
+</complexType>
+<element name="Clients" type="tns:Clients"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50011" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50011">
+<complexType name="ClientAccount">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MembershipID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="KYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Mandate" type="string"/>
+</sequence>
+</complexType>
+<complexType name="ClientAccounts" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="ClientAccount" type="tns:ClientAccount"/>
+</sequence>
+</complexType>
+<element name="ClientAccounts" type="tns:ClientAccounts"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50016" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50016">
+<complexType name="ClientNOK">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="MembershipNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="Lineno" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="FirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Surname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MailingAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RelationShip" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Title" type="string"/>
+</sequence>
+</complexType>
+<complexType name="ClientsNOK" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="ClientNOK" type="tns:ClientNOK"/>
+</sequence>
+</complexType>
+<element name="ClientsNOK" type="tns:ClientsNOK"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50017" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50017">
+<complexType name="KYCLink">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="KYCTYPE" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Link" type="string"/>
+</sequence>
+</complexType>
+<complexType name="KYCLinks" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="KYCLink" type="tns:KYCLink"/>
+</sequence>
+</complexType>
+<element name="KYCLinks" type="tns:KYCLinks"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50018" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50018">
+<complexType name="JointHolder">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="MembershipNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="LineNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="Title" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Surname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MailingAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MainHolder" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Signatory" type="string"/>
+</sequence>
+</complexType>
+<complexType name="Jointholders" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="JointHolder" type="tns:JointHolder"/>
+</sequence>
+</complexType>
+<element name="Jointholders" type="tns:Jointholders"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50093" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50093">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="No" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoOfUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DividendPaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalAmountPayable" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ValueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionDate" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankName" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankSortCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankAccountName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NetAmountPayable" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RedemptionType" type="string"/>
+</sequence>
+</complexType>
+<complexType name="STPResponse" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="STPResponse" type="tns:STPResponse"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50092" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50092">
+<complexType name="Redemption">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="TransactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankResponseStatus" type="string"/>
+<element minOccurs="0" maxOccurs="1" name="BankResponseComment" type="string"/>
+</sequence>
+</complexType>
+<complexType name="BankRedemptionStatus" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Redemption" type="tns:Redemption"/>
+</sequence>
+</complexType>
+<element name="BankRedemptionStatus" type="tns:BankRedemptionStatus"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50099" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50099">
+<complexType name="LoanDetails">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="LoanNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanProductType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanProductName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanRepaymentMethod" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PrincipalRepymentMethod" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PrincipalRepymentFrequency" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="InterestRepymentFrequency" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="LoanPeriodInMonths" type="int"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="NoOfPrincipalRepyments" type="int"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="NoOfInterestRepyments" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="InterestRate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="OnRepaymentHoliday" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ApplicationDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RequestedAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="InvestmentBalance" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Principal" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Interest" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RepaymentStartDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Status" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ExistingLoanAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ApprovedAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DatePlacedOnHoliday" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanDisbursementDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PrincipalRepaymentMonth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Disbursed" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RepaymentEndDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PaymentCompleted" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="NoOfRepaidPeriods" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="TotalInterestRepaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalPrincipalRepaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalAmountRepaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="NoOfOutstandingPeriods" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="OutstandingInterest" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="OutstandingPrincipal" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalAmountOutstanding" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="EffectiveLoanAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="StaffID" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="LoanYears" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="AnnualInstallment" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MonthlyInstallment" type="string"/>
+</sequence>
+</complexType>
+<complexType name="Loans" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="LoanDetails" type="tns:LoanDetails"/>
+</sequence>
+</complexType>
+<element name="Loans" type="tns:Loans"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50027" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50027">
+<complexType name="LoanRepaymentSchedule">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="LoanNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RepaymentDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PrincipalDue" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="InterestDue" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalDue" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FullyPaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="InstrumentNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="SettlementDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalSettlement" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="LoanProductType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Settled" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PrincipalRepayment" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="InterestRepayment" type="string"/>
+<element minOccurs="1" maxOccurs="1" default="0" name="RepaymentLineNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="SettlementMethod" type="string"/>
+</sequence>
+</complexType>
+<complexType name="LoanRepayment" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="LoanRepaymentSchedule" type="tns:LoanRepaymentSchedule"/>
+</sequence>
+</complexType>
+<element name="LoanRepayment" type="tns:LoanRepayment"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50025" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50025">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="ReconNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="No" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoOfUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FeeUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FeeAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="TotalUnits" type="string"/>
+</sequence>
+</complexType>
+<complexType name="PortfolioRedResponse" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="PortfolioRedResponse" type="tns:PortfolioRedResponse"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50026" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50026">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ValueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BidPrice" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MidPrice" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="OfferPrice" type="string"/>
+</sequence>
+</complexType>
+<complexType name="PortfolioPriceResponse" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="PortfolioPriceResponse" type="tns:PortfolioPriceResponse"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50106" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50106">
+<complexType name="Lines">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="No" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ClientName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="FundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Price" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NoOfUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DividendPaid" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TotalAmountPayable" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ValueDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransactionDate" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankName" type="string"/>
+<element minOccurs="1" maxOccurs="unbounded" name="BankSortCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankAccountName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="NetAmountPayable" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="RedemptionType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="CreatedAt" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PostedAt" type="string"/>
+</sequence>
+</complexType>
+<complexType name="REDResponse" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines"/>
+</sequence>
+</complexType>
+<element name="REDResponse" type="tns:REDResponse"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50101" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50101">
+<complexType name="Nominee">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="PortfolioCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MutualfundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AssetClassId" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DeclaredDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="PaymentDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="HoldingUnits" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TaxAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ProcessedDate" type="string"/>
+</sequence>
+</complexType>
+<complexType name="NomineeDividend" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Nominee" type="tns:Nominee"/>
+</sequence>
+</complexType>
+<element name="NomineeDividend" type="tns:NomineeDividend"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50105" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50105">
+<complexType name="Dividend">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="PortfolioCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="MutualfundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="AssetClassId" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DeclaredDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ReInvestmentPrice" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="UnitsHolding" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TaxAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="IsReinvestment" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ProcessedDate" type="string"/>
+</sequence>
+</complexType>
+<complexType name="DividendPayment" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Dividend" type="tns:Dividend"/>
+</sequence>
+</complexType>
+<element name="DividendPayment" type="tns:DividendPayment"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:microsoft-dynamics-nav/xmlports/x50107" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/x50107">
+<complexType name="Dividend">
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="MutualfundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="DeclaredDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TransDate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="Amount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="UnitsHolding" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="TaxAmount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="IsReinvestment" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="BankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="ProcessedDate" type="string"/>
+</sequence>
+</complexType>
+<complexType name="DividendReinvest" mixed="true">
+<sequence>
+<element minOccurs="1" maxOccurs="unbounded" name="Dividend" type="tns:Dividend"/>
+</sequence>
+</complexType>
+<element name="DividendReinvest" type="tns:DividendReinvest"/>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService">
+<element name="UpdateClient">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleNames" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="addres" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="cityp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contct" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="phoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="titlep" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="houseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="estate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="countrys" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountManager" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="statep" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="streetName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="nationlity" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="occupationp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="mothersName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="genderp" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="placeofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorFname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorLname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorMname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="identificationType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="identificationNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bVN" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jurisdiction" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="usTaxNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isPoliticallyExposed" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="politicalInfo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="religon" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nINp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="diasporaClient" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="clientStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="emailNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="postNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="officeNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="smsNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="socialMedia" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateCreated" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="createdby" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="mainAccount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="iVNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClient_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClient">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleNames" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="address" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="city" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contct" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="phoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="title" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="houseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="estate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="countrys" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountManager" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="states" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="streetName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="nationlity" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="occupation" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="mothersName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="genderp" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="placeofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorFname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorLname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorMname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="identificationType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="identificationNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bVN" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jurisdiction" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="usTaxNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isPoliticallyExposed" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="politicalInfo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="religon" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nINp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="diasporaClient" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="clientStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="emailNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="postNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="officeNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="smsNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="socialMedia" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateCreated" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="createdby" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="mainAccount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="iVNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClient_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="ChangeCLientStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="newStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ChangeCLientStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClientAccountBackup">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="referrerMembershipID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dividendMandate" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="payDay" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="foreignBankName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="swiftCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="routingNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="finalCredit" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="beneficiaryAccountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClientAccountBackup_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccountBackup">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dividendMandate" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccountBackup_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccountStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="newStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccountStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateCaution">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="cautionType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="restrictionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="requestor" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="approver" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateCaution_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateLien">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lienAmount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateLien_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscription">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="amountsubscribed" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isReversal" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="directPosting" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="referenceCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="notes" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscription_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateStatementLines">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="transDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="amount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="narration" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="channel" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="transReferenceNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundcode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateStatementLines_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateRedemptionBackup">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="amountRedeem" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="noofunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath2" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isReversal" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="onlineRedemption" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateRedemptionBackup_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="amountRedeem" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="noofunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath2" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isReversal" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="onlineRedemption" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateOnlineIndemnityRequest">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentLink" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="requestor" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="approver" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateOnlineIndemnityRequest_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateDirectDebitRequest">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentLink" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="debitFrequency" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="debitAmount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateDirectDebitRequest_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateKycLinks">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="docLink" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateKycLinks_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNextofKinBackup">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKRelationShip" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKLastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKFirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKMiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="nOKAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTelephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKState" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKCountry" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNextofKinBackup_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateJointAccountHolder">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="holderTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="address" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="telephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="state" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="country" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jSignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="mandatorySignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateofBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="mainHolder" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateJointAccountHolder_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreatefundPrice">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="midPrice" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="updateSource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreatefundPrice_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountBalance">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientAccountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountBalance_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="decimal"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountDividend">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountDividend_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="decimal"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientTransactions">
+<complexType>
+<sequence>
+<element xmlns:q1="urn:microsoft-dynamics-nav/xmlports/x50006" minOccurs="1" maxOccurs="1" name="exportClientTransactions" type="q1:ClientTransactions"/>
+<element minOccurs="1" maxOccurs="1" name="accountno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientTransactions_Result">
+<complexType>
+<sequence>
+<element xmlns:q2="urn:microsoft-dynamics-nav/xmlports/x50006" minOccurs="1" maxOccurs="1" name="exportClientTransactions" type="q2:ClientTransactions"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientRedemptionstoPushtobank">
+<complexType>
+<sequence>
+<element xmlns:q3="urn:microsoft-dynamics-nav/xmlports/x50007" minOccurs="1" maxOccurs="1" name="exportRedemptionsToBank" type="q3:RedemptionsPushtoBank"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientRedemptionstoPushtobank_Result">
+<complexType>
+<sequence>
+<element xmlns:q4="urn:microsoft-dynamics-nav/xmlports/x50007" minOccurs="1" maxOccurs="1" name="exportRedemptionsToBank" type="q4:RedemptionsPushtoBank"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientTransferstopushtoBank">
+<complexType>
+<sequence>
+<element xmlns:q5="urn:microsoft-dynamics-nav/xmlports/x50008" minOccurs="1" maxOccurs="1" name="exportUnitTransferToBank" type="q5:PostedTransfers"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientTransferstopushtoBank_Result">
+<complexType>
+<sequence>
+<element xmlns:q6="urn:microsoft-dynamics-nav/xmlports/x50008" minOccurs="1" maxOccurs="1" name="exportUnitTransferToBank" type="q6:PostedTransfers"/>
+</sequence>
+</complexType>
+</element>
+<element name="MarkRedemptionsaspushedtoBank">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="MarkRedemptionsaspushedtoBank_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="MarkTransferaspushedtoBank">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="MarkTransferaspushedtoBank_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateKycLinks">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentType" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="docLink" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="entryno" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateKycLinks_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateNextofKin">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lineNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="nOKRelationShip" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKLastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKFirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKMiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="nOKAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTelephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKState" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKCountry" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateNextofKin_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateJointAccountHolder">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lineNo" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="holderTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="address" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="telephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="state" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="country" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jSignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="mandatorySignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateofBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="mainHolder" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateJointAccountHolder_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateAllClientDetails">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleNames" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="address" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="city" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contct" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="phoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="title" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="houseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="estate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="country" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountManager" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="state" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="streetName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="nationlity" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="occupation" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="mothersName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="genderp" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="placeofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorFname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorLname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorMname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="identificationType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="identificationNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bVN" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jurisdiction" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="usTaxNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isPoliticallyExposed" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="politicalInfo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="religon" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nINp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="diasporaClient" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="clientStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="emailNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="postNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="officeNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="smsNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="socialMedia" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateCreated" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="createdby" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="mainAccount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="iVNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKRelationShip" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKLastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKFirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKMiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="nOKAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTelephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKState" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKCountry" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="holderTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jointLastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jointFirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="telephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jSignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="mandatorySignatory" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="mainHolder" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dividendMandate" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateAllClientDetails_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="PostdailyDistributableIncome">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundcode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="subscriptionUnits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="eODNAV" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="dailyDistributableincome" type="decimal"/>
+</sequence>
+</complexType>
+</element>
+<element name="PostdailyDistributableIncome_Result">
+<complexType>
+<sequence/>
+</complexType>
+</element>
+<element name="GetClientDetails">
+<complexType>
+<sequence>
+<element xmlns:q7="urn:microsoft-dynamics-nav/xmlports/x50012" minOccurs="1" maxOccurs="1" name="exportClientDetails" type="q7:Clients"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientDetails_Result">
+<complexType>
+<sequence>
+<element xmlns:q8="urn:microsoft-dynamics-nav/xmlports/x50012" minOccurs="1" maxOccurs="1" name="exportClientDetails" type="q8:Clients"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientAccountDetails">
+<complexType>
+<sequence>
+<element xmlns:q9="urn:microsoft-dynamics-nav/xmlports/x50011" minOccurs="1" maxOccurs="1" name="exportClientAccounts" type="q9:ClientAccounts"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientAccountDetails_Result">
+<complexType>
+<sequence>
+<element xmlns:q10="urn:microsoft-dynamics-nav/xmlports/x50011" minOccurs="1" maxOccurs="1" name="exportClientAccounts" type="q10:ClientAccounts"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetKYCTier">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetKYCTier_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetRedemptionStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="redemptioncode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetRedemptionStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetSubscriptionStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="subscriptionCode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetSubscriptionStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetOnlineIndemnityStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="indemnityNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetOnlineIndemnityStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetDirectDebitStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="directDebitNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetDirectDebitStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateRedemptionBankResponse">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="transactionDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="transactionBatch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="paymentStatus" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="paymentDescription" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateRedemptionBankResponse_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateTransferBankResponse">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="transactionDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="transactionBatch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="paymentStatus" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="paymentDescription" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateTransferBankResponse_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateBankDetails">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateBankDetails_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientNextofKinDetails">
+<complexType>
+<sequence>
+<element xmlns:q11="urn:microsoft-dynamics-nav/xmlports/x50016" minOccurs="1" maxOccurs="1" name="exportNextofKinDetails" type="q11:ClientsNOK"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientNextofKinDetails_Result">
+<complexType>
+<sequence>
+<element xmlns:q12="urn:microsoft-dynamics-nav/xmlports/x50016" minOccurs="1" maxOccurs="1" name="exportNextofKinDetails" type="q12:ClientsNOK"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientKycLinks">
+<complexType>
+<sequence>
+<element xmlns:q13="urn:microsoft-dynamics-nav/xmlports/x50017" minOccurs="1" maxOccurs="1" name="exportClientKycLinks" type="q13:KYCLinks"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientKycLinks_Result">
+<complexType>
+<sequence>
+<element xmlns:q14="urn:microsoft-dynamics-nav/xmlports/x50017" minOccurs="1" maxOccurs="1" name="exportClientKycLinks" type="q14:KYCLinks"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetJointHolderDetails">
+<complexType>
+<sequence>
+<element xmlns:q15="urn:microsoft-dynamics-nav/xmlports/x50018" minOccurs="1" maxOccurs="1" name="exportJointHolderDetails" type="q15:Jointholders"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetJointHolderDetails_Result">
+<complexType>
+<sequence>
+<element xmlns:q16="urn:microsoft-dynamics-nav/xmlports/x50018" minOccurs="1" maxOccurs="1" name="exportJointHolderDetails" type="q16:Jointholders"/>
+</sequence>
+</complexType>
+</element>
+<element name="ReverseSubscription">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ReverseSubscription_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountNoFromOldMembershipID">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="oldMembershipNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundcode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetAccountNoFromOldMembershipID_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ReverseRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="transactionNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ReverseRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetCaseStatus">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetCaseStatus_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ValidateRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="amountRedeem" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="noofunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath2" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isReversal" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="onlineRedemption" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="ValidateRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ValidateValuedateAgainstPrice">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundcode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="ValidateValuedateAgainstPrice_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetSTPTransactions">
+<complexType>
+<sequence>
+<element xmlns:q17="urn:microsoft-dynamics-nav/xmlports/x50093" minOccurs="1" maxOccurs="1" name="sTPResponse" type="q17:STPResponse"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetSTPTransactions_Result">
+<complexType>
+<sequence>
+<element xmlns:q18="urn:microsoft-dynamics-nav/xmlports/x50093" minOccurs="1" maxOccurs="1" name="sTPResponse" type="q18:STPResponse"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetTreasuryBankResponse">
+<complexType>
+<sequence>
+<element xmlns:q19="urn:microsoft-dynamics-nav/xmlports/x50092" minOccurs="1" maxOccurs="1" name="bankResponse" type="q19:BankRedemptionStatus"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetTreasuryBankResponse_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+<element xmlns:q20="urn:microsoft-dynamics-nav/xmlports/x50092" minOccurs="1" maxOccurs="1" name="bankResponse" type="q20:BankRedemptionStatus"/>
+</sequence>
+</complexType>
+</element>
+<element name="CRMCreateSubscription">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="amountsubscribed" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CRMCreateSubscription_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateReferral">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateReferral_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientLoans">
+<complexType>
+<sequence>
+<element xmlns:q21="urn:microsoft-dynamics-nav/xmlports/x50099" minOccurs="1" maxOccurs="1" name="clientLoan" type="q21:Loans"/>
+<element minOccurs="1" maxOccurs="1" name="staffID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetClientLoans_Result">
+<complexType>
+<sequence>
+<element xmlns:q22="urn:microsoft-dynamics-nav/xmlports/x50099" minOccurs="1" maxOccurs="1" name="clientLoan" type="q22:Loans"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetLoanRepaymentSchedule">
+<complexType>
+<sequence>
+<element xmlns:q23="urn:microsoft-dynamics-nav/xmlports/x50027" minOccurs="1" maxOccurs="1" name="clientLoanRepayment" type="q23:LoanRepayment"/>
+<element minOccurs="1" maxOccurs="1" name="loanNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetLoanRepaymentSchedule_Result">
+<complexType>
+<sequence>
+<element xmlns:q24="urn:microsoft-dynamics-nav/xmlports/x50027" minOccurs="1" maxOccurs="1" name="clientLoanRepayment" type="q24:LoanRepayment"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreatePortfolioRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="noofunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreatePortfolioRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPostedPortfolioRedemption">
+<complexType>
+<sequence>
+<element xmlns:q25="urn:microsoft-dynamics-nav/xmlports/x50025" minOccurs="1" maxOccurs="1" name="exportPortfolioTransactions" type="q25:PortfolioRedResponse"/>
+<element minOccurs="1" maxOccurs="1" name="reconNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPostedPortfolioRedemption_Result">
+<complexType>
+<sequence>
+<element xmlns:q26="urn:microsoft-dynamics-nav/xmlports/x50025" minOccurs="1" maxOccurs="1" name="exportPortfolioTransactions" type="q26:PortfolioRedResponse"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPrice">
+<complexType>
+<sequence>
+<element xmlns:q27="urn:microsoft-dynamics-nav/xmlports/x50026" minOccurs="1" maxOccurs="1" name="exportPortfolioPrice" type="q27:PortfolioPriceResponse"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPrice_Result">
+<complexType>
+<sequence>
+<element xmlns:q28="urn:microsoft-dynamics-nav/xmlports/x50026" minOccurs="1" maxOccurs="1" name="exportPortfolioPrice" type="q28:PortfolioPriceResponse"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetFundPrices">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bidPrice" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="midPrice" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="offerPrice" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetFundPrices_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetDistributableIncome">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="distributedIncome" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="updateSource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetDistributableIncome_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CheckIfSTP">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="amount" type="decimal"/>
+</sequence>
+</complexType>
+</element>
+<element name="CheckIfSTP_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateOnlineIndemnitySTP">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateOnlineIndemnitySTP_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="DeactivateOnlineIndemnitySTP">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="DeactivateOnlineIndemnitySTP_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscriptionHeader">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="transDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscriptionHeader_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscriptionLines">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="transDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="amount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="narration" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="channel" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="transReferenceNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="membershipID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="payMode" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="headerNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateSubscriptionLines_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoals">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="goalName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="goalMaturityDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoals_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoalsRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="caseno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="redemptionType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="amountRedeem" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="noofunits" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="documentPath2" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="remarks" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isReversal" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="onlineRedemption" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoalsRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoalsSubscription">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountno" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="amountsubscribed" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="directPosting" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="referenceCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="notes" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateGoalsSubscription_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPostedRedemptions">
+<complexType>
+<sequence>
+<element xmlns:q29="urn:microsoft-dynamics-nav/xmlports/x50106" minOccurs="1" maxOccurs="1" name="redemptionsResponse" type="q29:REDResponse"/>
+<element minOccurs="1" maxOccurs="1" name="startDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="endDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetPostedRedemptions_Result">
+<complexType>
+<sequence>
+<element xmlns:q30="urn:microsoft-dynamics-nav/xmlports/x50106" minOccurs="1" maxOccurs="1" name="redemptionsResponse" type="q30:REDResponse"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNewClient">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleNames" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="address" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="city" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contct" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="phoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="title" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="houseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="estate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="countrys" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountManager" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="states" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="streetName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="nationlity" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="occupation" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="mothersName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="genderp" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="placeofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorFname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorLname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorMname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="identificationType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="identificationNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bVN" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jurisdiction" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="usTaxNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isPoliticallyExposed" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="politicalInfo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="religon" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nINp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="diasporaClient" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="clientStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="emailNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="postNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="officeNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="smsNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="socialMedia" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateCreated" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="createdby" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="mainAccount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="iVNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNewClient_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateNewClient">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="firstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="lastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="middleNames" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="addres" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="cityp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="contct" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="phoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="titlep" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="houseNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="estate" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="countrys" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="accountManager" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="statep" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="streetName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dateOfBirth" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="nationlity" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="occupationp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="mothersName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="genderp" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="placeofBirth" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorFname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorLname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsorMname" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="sponsTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="identificationType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="identificationNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bVN" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="jurisdiction" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="usTaxNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="isPoliticallyExposed" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="politicalInfo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="religon" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nINp" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="diasporaClient" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="clientStatus" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="emailNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="postNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="officeNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="smsNotification" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="socialMedia" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="dateCreated" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="createdby" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="email" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientType" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="mainAccount" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="iVNumber" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateNewClient_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClientAccount">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="referrerMembershipID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dividendMandate" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="payDay" type="boolean"/>
+<element minOccurs="1" maxOccurs="1" name="foreignBankName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="swiftCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="routingNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="finalCredit" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="beneficiaryAccountNo" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateClientAccount_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccount">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankBranch" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="bankAccountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="kYCTier" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="dividendMandate" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="source" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="UpdateClientAccount_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNextofKin">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKRelationShip" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTitle" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKLastName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKFirstName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKMiddleName" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKGender" type="int"/>
+<element minOccurs="1" maxOccurs="1" name="nOKAddress" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTelephoneNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKEmail" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKState" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKTown" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="nOKCountry" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="updatesource" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CreateNextofKin_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="int"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundsDistributableIncome">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="distributableIncome" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="whtAmount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="taxRate" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="paymentDate" type="date"/>
+<element minOccurs="1" maxOccurs="1" name="uniqueReference" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="createdDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundsDistributableIncome_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetNomineeDividend">
+<complexType>
+<sequence>
+<element xmlns:q31="urn:microsoft-dynamics-nav/xmlports/x50101" minOccurs="1" maxOccurs="1" name="getNominee" type="q31:NomineeDividend"/>
+<element minOccurs="1" maxOccurs="1" name="date" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetNomineeDividend_Result">
+<complexType>
+<sequence>
+<element xmlns:q32="urn:microsoft-dynamics-nav/xmlports/x50101" minOccurs="1" maxOccurs="1" name="getNominee" type="q32:NomineeDividend"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundDividendPayment">
+<complexType>
+<sequence>
+<element xmlns:q33="urn:microsoft-dynamics-nav/xmlports/x50105" minOccurs="1" maxOccurs="1" name="getDividendPayment" type="q33:DividendPayment"/>
+<element minOccurs="1" maxOccurs="1" name="date" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundDividendPayment_Result">
+<complexType>
+<sequence>
+<element xmlns:q34="urn:microsoft-dynamics-nav/xmlports/x50105" minOccurs="1" maxOccurs="1" name="getDividendPayment" type="q34:DividendPayment"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundDividendReinvest">
+<complexType>
+<sequence>
+<element xmlns:q35="urn:microsoft-dynamics-nav/xmlports/x50107" minOccurs="1" maxOccurs="1" name="getDividendReinvest" type="q35:DividendReinvest"/>
+<element minOccurs="1" maxOccurs="1" name="date" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetMutualFundDividendReinvest_Result">
+<complexType>
+<sequence>
+<element xmlns:q36="urn:microsoft-dynamics-nav/xmlports/x50107" minOccurs="1" maxOccurs="1" name="getDividendReinvest" type="q36:DividendReinvest"/>
+</sequence>
+</complexType>
+</element>
+<element name="CheckClientNOK">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="clientID" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="CheckClientNOK_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="string"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetChargeOnEarlyWithdrawal">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="fundCode" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="amount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="acctNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="requestID" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="GetChargeOnEarlyWithdrawal_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="decimal"/>
+</sequence>
+</complexType>
+</element>
+<element name="IsDuplicateRedemption">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="accountNo" type="string"/>
+<element minOccurs="1" maxOccurs="1" name="amount" type="decimal"/>
+<element minOccurs="1" maxOccurs="1" name="valueDate" type="date"/>
+</sequence>
+</complexType>
+</element>
+<element name="IsDuplicateRedemption_Result">
+<complexType>
+<sequence>
+<element minOccurs="1" maxOccurs="1" name="return_value" type="boolean"/>
+</sequence>
+</complexType>
+</element>
+</schema>
+</types>
+<message name="UpdateClient">
+<part name="parameters" element="tns:UpdateClient"/>
+</message>
+<message name="UpdateClient_Result">
+<part name="parameters" element="tns:UpdateClient_Result"/>
+</message>
+<message name="CreateClient">
+<part name="parameters" element="tns:CreateClient"/>
+</message>
+<message name="CreateClient_Result">
+<part name="parameters" element="tns:CreateClient_Result"/>
+</message>
+<message name="ChangeCLientStatus">
+<part name="parameters" element="tns:ChangeCLientStatus"/>
+</message>
+<message name="ChangeCLientStatus_Result">
+<part name="parameters" element="tns:ChangeCLientStatus_Result"/>
+</message>
+<message name="CreateClientAccountBackup">
+<part name="parameters" element="tns:CreateClientAccountBackup"/>
+</message>
+<message name="CreateClientAccountBackup_Result">
+<part name="parameters" element="tns:CreateClientAccountBackup_Result"/>
+</message>
+<message name="UpdateClientAccountBackup">
+<part name="parameters" element="tns:UpdateClientAccountBackup"/>
+</message>
+<message name="UpdateClientAccountBackup_Result">
+<part name="parameters" element="tns:UpdateClientAccountBackup_Result"/>
+</message>
+<message name="UpdateClientAccountStatus">
+<part name="parameters" element="tns:UpdateClientAccountStatus"/>
+</message>
+<message name="UpdateClientAccountStatus_Result">
+<part name="parameters" element="tns:UpdateClientAccountStatus_Result"/>
+</message>
+<message name="CreateCaution">
+<part name="parameters" element="tns:CreateCaution"/>
+</message>
+<message name="CreateCaution_Result">
+<part name="parameters" element="tns:CreateCaution_Result"/>
+</message>
+<message name="CreateLien">
+<part name="parameters" element="tns:CreateLien"/>
+</message>
+<message name="CreateLien_Result">
+<part name="parameters" element="tns:CreateLien_Result"/>
+</message>
+<message name="CreateSubscription">
+<part name="parameters" element="tns:CreateSubscription"/>
+</message>
+<message name="CreateSubscription_Result">
+<part name="parameters" element="tns:CreateSubscription_Result"/>
+</message>
+<message name="CreateStatementLines">
+<part name="parameters" element="tns:CreateStatementLines"/>
+</message>
+<message name="CreateStatementLines_Result">
+<part name="parameters" element="tns:CreateStatementLines_Result"/>
+</message>
+<message name="CreateRedemptionBackup">
+<part name="parameters" element="tns:CreateRedemptionBackup"/>
+</message>
+<message name="CreateRedemptionBackup_Result">
+<part name="parameters" element="tns:CreateRedemptionBackup_Result"/>
+</message>
+<message name="CreateRedemption">
+<part name="parameters" element="tns:CreateRedemption"/>
+</message>
+<message name="CreateRedemption_Result">
+<part name="parameters" element="tns:CreateRedemption_Result"/>
+</message>
+<message name="CreateOnlineIndemnityRequest">
+<part name="parameters" element="tns:CreateOnlineIndemnityRequest"/>
+</message>
+<message name="CreateOnlineIndemnityRequest_Result">
+<part name="parameters" element="tns:CreateOnlineIndemnityRequest_Result"/>
+</message>
+<message name="CreateDirectDebitRequest">
+<part name="parameters" element="tns:CreateDirectDebitRequest"/>
+</message>
+<message name="CreateDirectDebitRequest_Result">
+<part name="parameters" element="tns:CreateDirectDebitRequest_Result"/>
+</message>
+<message name="CreateKycLinks">
+<part name="parameters" element="tns:CreateKycLinks"/>
+</message>
+<message name="CreateKycLinks_Result">
+<part name="parameters" element="tns:CreateKycLinks_Result"/>
+</message>
+<message name="CreateNextofKinBackup">
+<part name="parameters" element="tns:CreateNextofKinBackup"/>
+</message>
+<message name="CreateNextofKinBackup_Result">
+<part name="parameters" element="tns:CreateNextofKinBackup_Result"/>
+</message>
+<message name="CreateJointAccountHolder">
+<part name="parameters" element="tns:CreateJointAccountHolder"/>
+</message>
+<message name="CreateJointAccountHolder_Result">
+<part name="parameters" element="tns:CreateJointAccountHolder_Result"/>
+</message>
+<message name="CreatefundPrice">
+<part name="parameters" element="tns:CreatefundPrice"/>
+</message>
+<message name="CreatefundPrice_Result">
+<part name="parameters" element="tns:CreatefundPrice_Result"/>
+</message>
+<message name="GetAccountBalance">
+<part name="parameters" element="tns:GetAccountBalance"/>
+</message>
+<message name="GetAccountBalance_Result">
+<part name="parameters" element="tns:GetAccountBalance_Result"/>
+</message>
+<message name="GetAccountDividend">
+<part name="parameters" element="tns:GetAccountDividend"/>
+</message>
+<message name="GetAccountDividend_Result">
+<part name="parameters" element="tns:GetAccountDividend_Result"/>
+</message>
+<message name="GetClientTransactions">
+<part name="parameters" element="tns:GetClientTransactions"/>
+</message>
+<message name="GetClientTransactions_Result">
+<part name="parameters" element="tns:GetClientTransactions_Result"/>
+</message>
+<message name="GetClientRedemptionstoPushtobank">
+<part name="parameters" element="tns:GetClientRedemptionstoPushtobank"/>
+</message>
+<message name="GetClientRedemptionstoPushtobank_Result">
+<part name="parameters" element="tns:GetClientRedemptionstoPushtobank_Result"/>
+</message>
+<message name="GetClientTransferstopushtoBank">
+<part name="parameters" element="tns:GetClientTransferstopushtoBank"/>
+</message>
+<message name="GetClientTransferstopushtoBank_Result">
+<part name="parameters" element="tns:GetClientTransferstopushtoBank_Result"/>
+</message>
+<message name="MarkRedemptionsaspushedtoBank">
+<part name="parameters" element="tns:MarkRedemptionsaspushedtoBank"/>
+</message>
+<message name="MarkRedemptionsaspushedtoBank_Result">
+<part name="parameters" element="tns:MarkRedemptionsaspushedtoBank_Result"/>
+</message>
+<message name="MarkTransferaspushedtoBank">
+<part name="parameters" element="tns:MarkTransferaspushedtoBank"/>
+</message>
+<message name="MarkTransferaspushedtoBank_Result">
+<part name="parameters" element="tns:MarkTransferaspushedtoBank_Result"/>
+</message>
+<message name="UpdateKycLinks">
+<part name="parameters" element="tns:UpdateKycLinks"/>
+</message>
+<message name="UpdateKycLinks_Result">
+<part name="parameters" element="tns:UpdateKycLinks_Result"/>
+</message>
+<message name="UpdateNextofKin">
+<part name="parameters" element="tns:UpdateNextofKin"/>
+</message>
+<message name="UpdateNextofKin_Result">
+<part name="parameters" element="tns:UpdateNextofKin_Result"/>
+</message>
+<message name="UpdateJointAccountHolder">
+<part name="parameters" element="tns:UpdateJointAccountHolder"/>
+</message>
+<message name="UpdateJointAccountHolder_Result">
+<part name="parameters" element="tns:UpdateJointAccountHolder_Result"/>
+</message>
+<message name="CreateAllClientDetails">
+<part name="parameters" element="tns:CreateAllClientDetails"/>
+</message>
+<message name="CreateAllClientDetails_Result">
+<part name="parameters" element="tns:CreateAllClientDetails_Result"/>
+</message>
+<message name="PostdailyDistributableIncome">
+<part name="parameters" element="tns:PostdailyDistributableIncome"/>
+</message>
+<message name="PostdailyDistributableIncome_Result">
+<part name="parameters" element="tns:PostdailyDistributableIncome_Result"/>
+</message>
+<message name="GetClientDetails">
+<part name="parameters" element="tns:GetClientDetails"/>
+</message>
+<message name="GetClientDetails_Result">
+<part name="parameters" element="tns:GetClientDetails_Result"/>
+</message>
+<message name="GetClientAccountDetails">
+<part name="parameters" element="tns:GetClientAccountDetails"/>
+</message>
+<message name="GetClientAccountDetails_Result">
+<part name="parameters" element="tns:GetClientAccountDetails_Result"/>
+</message>
+<message name="GetKYCTier">
+<part name="parameters" element="tns:GetKYCTier"/>
+</message>
+<message name="GetKYCTier_Result">
+<part name="parameters" element="tns:GetKYCTier_Result"/>
+</message>
+<message name="GetRedemptionStatus">
+<part name="parameters" element="tns:GetRedemptionStatus"/>
+</message>
+<message name="GetRedemptionStatus_Result">
+<part name="parameters" element="tns:GetRedemptionStatus_Result"/>
+</message>
+<message name="GetSubscriptionStatus">
+<part name="parameters" element="tns:GetSubscriptionStatus"/>
+</message>
+<message name="GetSubscriptionStatus_Result">
+<part name="parameters" element="tns:GetSubscriptionStatus_Result"/>
+</message>
+<message name="GetOnlineIndemnityStatus">
+<part name="parameters" element="tns:GetOnlineIndemnityStatus"/>
+</message>
+<message name="GetOnlineIndemnityStatus_Result">
+<part name="parameters" element="tns:GetOnlineIndemnityStatus_Result"/>
+</message>
+<message name="GetDirectDebitStatus">
+<part name="parameters" element="tns:GetDirectDebitStatus"/>
+</message>
+<message name="GetDirectDebitStatus_Result">
+<part name="parameters" element="tns:GetDirectDebitStatus_Result"/>
+</message>
+<message name="UpdateRedemptionBankResponse">
+<part name="parameters" element="tns:UpdateRedemptionBankResponse"/>
+</message>
+<message name="UpdateRedemptionBankResponse_Result">
+<part name="parameters" element="tns:UpdateRedemptionBankResponse_Result"/>
+</message>
+<message name="UpdateTransferBankResponse">
+<part name="parameters" element="tns:UpdateTransferBankResponse"/>
+</message>
+<message name="UpdateTransferBankResponse_Result">
+<part name="parameters" element="tns:UpdateTransferBankResponse_Result"/>
+</message>
+<message name="UpdateBankDetails">
+<part name="parameters" element="tns:UpdateBankDetails"/>
+</message>
+<message name="UpdateBankDetails_Result">
+<part name="parameters" element="tns:UpdateBankDetails_Result"/>
+</message>
+<message name="GetClientNextofKinDetails">
+<part name="parameters" element="tns:GetClientNextofKinDetails"/>
+</message>
+<message name="GetClientNextofKinDetails_Result">
+<part name="parameters" element="tns:GetClientNextofKinDetails_Result"/>
+</message>
+<message name="GetClientKycLinks">
+<part name="parameters" element="tns:GetClientKycLinks"/>
+</message>
+<message name="GetClientKycLinks_Result">
+<part name="parameters" element="tns:GetClientKycLinks_Result"/>
+</message>
+<message name="GetJointHolderDetails">
+<part name="parameters" element="tns:GetJointHolderDetails"/>
+</message>
+<message name="GetJointHolderDetails_Result">
+<part name="parameters" element="tns:GetJointHolderDetails_Result"/>
+</message>
+<message name="ReverseSubscription">
+<part name="parameters" element="tns:ReverseSubscription"/>
+</message>
+<message name="ReverseSubscription_Result">
+<part name="parameters" element="tns:ReverseSubscription_Result"/>
+</message>
+<message name="GetAccountNoFromOldMembershipID">
+<part name="parameters" element="tns:GetAccountNoFromOldMembershipID"/>
+</message>
+<message name="GetAccountNoFromOldMembershipID_Result">
+<part name="parameters" element="tns:GetAccountNoFromOldMembershipID_Result"/>
+</message>
+<message name="ReverseRedemption">
+<part name="parameters" element="tns:ReverseRedemption"/>
+</message>
+<message name="ReverseRedemption_Result">
+<part name="parameters" element="tns:ReverseRedemption_Result"/>
+</message>
+<message name="GetCaseStatus">
+<part name="parameters" element="tns:GetCaseStatus"/>
+</message>
+<message name="GetCaseStatus_Result">
+<part name="parameters" element="tns:GetCaseStatus_Result"/>
+</message>
+<message name="ValidateRedemption">
+<part name="parameters" element="tns:ValidateRedemption"/>
+</message>
+<message name="ValidateRedemption_Result">
+<part name="parameters" element="tns:ValidateRedemption_Result"/>
+</message>
+<message name="ValidateValuedateAgainstPrice">
+<part name="parameters" element="tns:ValidateValuedateAgainstPrice"/>
+</message>
+<message name="ValidateValuedateAgainstPrice_Result">
+<part name="parameters" element="tns:ValidateValuedateAgainstPrice_Result"/>
+</message>
+<message name="GetSTPTransactions">
+<part name="parameters" element="tns:GetSTPTransactions"/>
+</message>
+<message name="GetSTPTransactions_Result">
+<part name="parameters" element="tns:GetSTPTransactions_Result"/>
+</message>
+<message name="GetTreasuryBankResponse">
+<part name="parameters" element="tns:GetTreasuryBankResponse"/>
+</message>
+<message name="GetTreasuryBankResponse_Result">
+<part name="parameters" element="tns:GetTreasuryBankResponse_Result"/>
+</message>
+<message name="CRMCreateSubscription">
+<part name="parameters" element="tns:CRMCreateSubscription"/>
+</message>
+<message name="CRMCreateSubscription_Result">
+<part name="parameters" element="tns:CRMCreateSubscription_Result"/>
+</message>
+<message name="CreateReferral">
+<part name="parameters" element="tns:CreateReferral"/>
+</message>
+<message name="CreateReferral_Result">
+<part name="parameters" element="tns:CreateReferral_Result"/>
+</message>
+<message name="GetClientLoans">
+<part name="parameters" element="tns:GetClientLoans"/>
+</message>
+<message name="GetClientLoans_Result">
+<part name="parameters" element="tns:GetClientLoans_Result"/>
+</message>
+<message name="GetLoanRepaymentSchedule">
+<part name="parameters" element="tns:GetLoanRepaymentSchedule"/>
+</message>
+<message name="GetLoanRepaymentSchedule_Result">
+<part name="parameters" element="tns:GetLoanRepaymentSchedule_Result"/>
+</message>
+<message name="CreatePortfolioRedemption">
+<part name="parameters" element="tns:CreatePortfolioRedemption"/>
+</message>
+<message name="CreatePortfolioRedemption_Result">
+<part name="parameters" element="tns:CreatePortfolioRedemption_Result"/>
+</message>
+<message name="GetPostedPortfolioRedemption">
+<part name="parameters" element="tns:GetPostedPortfolioRedemption"/>
+</message>
+<message name="GetPostedPortfolioRedemption_Result">
+<part name="parameters" element="tns:GetPostedPortfolioRedemption_Result"/>
+</message>
+<message name="GetPrice">
+<part name="parameters" element="tns:GetPrice"/>
+</message>
+<message name="GetPrice_Result">
+<part name="parameters" element="tns:GetPrice_Result"/>
+</message>
+<message name="GetFundPrices">
+<part name="parameters" element="tns:GetFundPrices"/>
+</message>
+<message name="GetFundPrices_Result">
+<part name="parameters" element="tns:GetFundPrices_Result"/>
+</message>
+<message name="GetDistributableIncome">
+<part name="parameters" element="tns:GetDistributableIncome"/>
+</message>
+<message name="GetDistributableIncome_Result">
+<part name="parameters" element="tns:GetDistributableIncome_Result"/>
+</message>
+<message name="CheckIfSTP">
+<part name="parameters" element="tns:CheckIfSTP"/>
+</message>
+<message name="CheckIfSTP_Result">
+<part name="parameters" element="tns:CheckIfSTP_Result"/>
+</message>
+<message name="CreateOnlineIndemnitySTP">
+<part name="parameters" element="tns:CreateOnlineIndemnitySTP"/>
+</message>
+<message name="CreateOnlineIndemnitySTP_Result">
+<part name="parameters" element="tns:CreateOnlineIndemnitySTP_Result"/>
+</message>
+<message name="DeactivateOnlineIndemnitySTP">
+<part name="parameters" element="tns:DeactivateOnlineIndemnitySTP"/>
+</message>
+<message name="DeactivateOnlineIndemnitySTP_Result">
+<part name="parameters" element="tns:DeactivateOnlineIndemnitySTP_Result"/>
+</message>
+<message name="CreateSubscriptionHeader">
+<part name="parameters" element="tns:CreateSubscriptionHeader"/>
+</message>
+<message name="CreateSubscriptionHeader_Result">
+<part name="parameters" element="tns:CreateSubscriptionHeader_Result"/>
+</message>
+<message name="CreateSubscriptionLines">
+<part name="parameters" element="tns:CreateSubscriptionLines"/>
+</message>
+<message name="CreateSubscriptionLines_Result">
+<part name="parameters" element="tns:CreateSubscriptionLines_Result"/>
+</message>
+<message name="CreateGoals">
+<part name="parameters" element="tns:CreateGoals"/>
+</message>
+<message name="CreateGoals_Result">
+<part name="parameters" element="tns:CreateGoals_Result"/>
+</message>
+<message name="CreateGoalsRedemption">
+<part name="parameters" element="tns:CreateGoalsRedemption"/>
+</message>
+<message name="CreateGoalsRedemption_Result">
+<part name="parameters" element="tns:CreateGoalsRedemption_Result"/>
+</message>
+<message name="CreateGoalsSubscription">
+<part name="parameters" element="tns:CreateGoalsSubscription"/>
+</message>
+<message name="CreateGoalsSubscription_Result">
+<part name="parameters" element="tns:CreateGoalsSubscription_Result"/>
+</message>
+<message name="GetPostedRedemptions">
+<part name="parameters" element="tns:GetPostedRedemptions"/>
+</message>
+<message name="GetPostedRedemptions_Result">
+<part name="parameters" element="tns:GetPostedRedemptions_Result"/>
+</message>
+<message name="CreateNewClient">
+<part name="parameters" element="tns:CreateNewClient"/>
+</message>
+<message name="CreateNewClient_Result">
+<part name="parameters" element="tns:CreateNewClient_Result"/>
+</message>
+<message name="UpdateNewClient">
+<part name="parameters" element="tns:UpdateNewClient"/>
+</message>
+<message name="UpdateNewClient_Result">
+<part name="parameters" element="tns:UpdateNewClient_Result"/>
+</message>
+<message name="CreateClientAccount">
+<part name="parameters" element="tns:CreateClientAccount"/>
+</message>
+<message name="CreateClientAccount_Result">
+<part name="parameters" element="tns:CreateClientAccount_Result"/>
+</message>
+<message name="UpdateClientAccount">
+<part name="parameters" element="tns:UpdateClientAccount"/>
+</message>
+<message name="UpdateClientAccount_Result">
+<part name="parameters" element="tns:UpdateClientAccount_Result"/>
+</message>
+<message name="CreateNextofKin">
+<part name="parameters" element="tns:CreateNextofKin"/>
+</message>
+<message name="CreateNextofKin_Result">
+<part name="parameters" element="tns:CreateNextofKin_Result"/>
+</message>
+<message name="GetMutualFundsDistributableIncome">
+<part name="parameters" element="tns:GetMutualFundsDistributableIncome"/>
+</message>
+<message name="GetMutualFundsDistributableIncome_Result">
+<part name="parameters" element="tns:GetMutualFundsDistributableIncome_Result"/>
+</message>
+<message name="GetNomineeDividend">
+<part name="parameters" element="tns:GetNomineeDividend"/>
+</message>
+<message name="GetNomineeDividend_Result">
+<part name="parameters" element="tns:GetNomineeDividend_Result"/>
+</message>
+<message name="GetMutualFundDividendPayment">
+<part name="parameters" element="tns:GetMutualFundDividendPayment"/>
+</message>
+<message name="GetMutualFundDividendPayment_Result">
+<part name="parameters" element="tns:GetMutualFundDividendPayment_Result"/>
+</message>
+<message name="GetMutualFundDividendReinvest">
+<part name="parameters" element="tns:GetMutualFundDividendReinvest"/>
+</message>
+<message name="GetMutualFundDividendReinvest_Result">
+<part name="parameters" element="tns:GetMutualFundDividendReinvest_Result"/>
+</message>
+<message name="CheckClientNOK">
+<part name="parameters" element="tns:CheckClientNOK"/>
+</message>
+<message name="CheckClientNOK_Result">
+<part name="parameters" element="tns:CheckClientNOK_Result"/>
+</message>
+<message name="GetChargeOnEarlyWithdrawal">
+<part name="parameters" element="tns:GetChargeOnEarlyWithdrawal"/>
+</message>
+<message name="GetChargeOnEarlyWithdrawal_Result">
+<part name="parameters" element="tns:GetChargeOnEarlyWithdrawal_Result"/>
+</message>
+<message name="IsDuplicateRedemption">
+<part name="parameters" element="tns:IsDuplicateRedemption"/>
+</message>
+<message name="IsDuplicateRedemption_Result">
+<part name="parameters" element="tns:IsDuplicateRedemption_Result"/>
+</message>
+<portType name="DynamicsNavService_Port">
+<operation name="UpdateClient">
+<input name="UpdateClient" message="tns:UpdateClient"/>
+<output name="UpdateClient_Result" message="tns:UpdateClient_Result"/>
+</operation>
+<operation name="CreateClient">
+<input name="CreateClient" message="tns:CreateClient"/>
+<output name="CreateClient_Result" message="tns:CreateClient_Result"/>
+</operation>
+<operation name="ChangeCLientStatus">
+<input name="ChangeCLientStatus" message="tns:ChangeCLientStatus"/>
+<output name="ChangeCLientStatus_Result" message="tns:ChangeCLientStatus_Result"/>
+</operation>
+<operation name="CreateClientAccountBackup">
+<input name="CreateClientAccountBackup" message="tns:CreateClientAccountBackup"/>
+<output name="CreateClientAccountBackup_Result" message="tns:CreateClientAccountBackup_Result"/>
+</operation>
+<operation name="UpdateClientAccountBackup">
+<input name="UpdateClientAccountBackup" message="tns:UpdateClientAccountBackup"/>
+<output name="UpdateClientAccountBackup_Result" message="tns:UpdateClientAccountBackup_Result"/>
+</operation>
+<operation name="UpdateClientAccountStatus">
+<input name="UpdateClientAccountStatus" message="tns:UpdateClientAccountStatus"/>
+<output name="UpdateClientAccountStatus_Result" message="tns:UpdateClientAccountStatus_Result"/>
+</operation>
+<operation name="CreateCaution">
+<input name="CreateCaution" message="tns:CreateCaution"/>
+<output name="CreateCaution_Result" message="tns:CreateCaution_Result"/>
+</operation>
+<operation name="CreateLien">
+<input name="CreateLien" message="tns:CreateLien"/>
+<output name="CreateLien_Result" message="tns:CreateLien_Result"/>
+</operation>
+<operation name="CreateSubscription">
+<input name="CreateSubscription" message="tns:CreateSubscription"/>
+<output name="CreateSubscription_Result" message="tns:CreateSubscription_Result"/>
+</operation>
+<operation name="CreateStatementLines">
+<input name="CreateStatementLines" message="tns:CreateStatementLines"/>
+<output name="CreateStatementLines_Result" message="tns:CreateStatementLines_Result"/>
+</operation>
+<operation name="CreateRedemptionBackup">
+<input name="CreateRedemptionBackup" message="tns:CreateRedemptionBackup"/>
+<output name="CreateRedemptionBackup_Result" message="tns:CreateRedemptionBackup_Result"/>
+</operation>
+<operation name="CreateRedemption">
+<input name="CreateRedemption" message="tns:CreateRedemption"/>
+<output name="CreateRedemption_Result" message="tns:CreateRedemption_Result"/>
+</operation>
+<operation name="CreateOnlineIndemnityRequest">
+<input name="CreateOnlineIndemnityRequest" message="tns:CreateOnlineIndemnityRequest"/>
+<output name="CreateOnlineIndemnityRequest_Result" message="tns:CreateOnlineIndemnityRequest_Result"/>
+</operation>
+<operation name="CreateDirectDebitRequest">
+<input name="CreateDirectDebitRequest" message="tns:CreateDirectDebitRequest"/>
+<output name="CreateDirectDebitRequest_Result" message="tns:CreateDirectDebitRequest_Result"/>
+</operation>
+<operation name="CreateKycLinks">
+<input name="CreateKycLinks" message="tns:CreateKycLinks"/>
+<output name="CreateKycLinks_Result" message="tns:CreateKycLinks_Result"/>
+</operation>
+<operation name="CreateNextofKinBackup">
+<input name="CreateNextofKinBackup" message="tns:CreateNextofKinBackup"/>
+<output name="CreateNextofKinBackup_Result" message="tns:CreateNextofKinBackup_Result"/>
+</operation>
+<operation name="CreateJointAccountHolder">
+<input name="CreateJointAccountHolder" message="tns:CreateJointAccountHolder"/>
+<output name="CreateJointAccountHolder_Result" message="tns:CreateJointAccountHolder_Result"/>
+</operation>
+<operation name="CreatefundPrice">
+<input name="CreatefundPrice" message="tns:CreatefundPrice"/>
+<output name="CreatefundPrice_Result" message="tns:CreatefundPrice_Result"/>
+</operation>
+<operation name="GetAccountBalance">
+<input name="GetAccountBalance" message="tns:GetAccountBalance"/>
+<output name="GetAccountBalance_Result" message="tns:GetAccountBalance_Result"/>
+</operation>
+<operation name="GetAccountDividend">
+<input name="GetAccountDividend" message="tns:GetAccountDividend"/>
+<output name="GetAccountDividend_Result" message="tns:GetAccountDividend_Result"/>
+</operation>
+<operation name="GetClientTransactions">
+<input name="GetClientTransactions" message="tns:GetClientTransactions"/>
+<output name="GetClientTransactions_Result" message="tns:GetClientTransactions_Result"/>
+</operation>
+<operation name="GetClientRedemptionstoPushtobank">
+<input name="GetClientRedemptionstoPushtobank" message="tns:GetClientRedemptionstoPushtobank"/>
+<output name="GetClientRedemptionstoPushtobank_Result" message="tns:GetClientRedemptionstoPushtobank_Result"/>
+</operation>
+<operation name="GetClientTransferstopushtoBank">
+<input name="GetClientTransferstopushtoBank" message="tns:GetClientTransferstopushtoBank"/>
+<output name="GetClientTransferstopushtoBank_Result" message="tns:GetClientTransferstopushtoBank_Result"/>
+</operation>
+<operation name="MarkRedemptionsaspushedtoBank">
+<input name="MarkRedemptionsaspushedtoBank" message="tns:MarkRedemptionsaspushedtoBank"/>
+<output name="MarkRedemptionsaspushedtoBank_Result" message="tns:MarkRedemptionsaspushedtoBank_Result"/>
+</operation>
+<operation name="MarkTransferaspushedtoBank">
+<input name="MarkTransferaspushedtoBank" message="tns:MarkTransferaspushedtoBank"/>
+<output name="MarkTransferaspushedtoBank_Result" message="tns:MarkTransferaspushedtoBank_Result"/>
+</operation>
+<operation name="UpdateKycLinks">
+<input name="UpdateKycLinks" message="tns:UpdateKycLinks"/>
+<output name="UpdateKycLinks_Result" message="tns:UpdateKycLinks_Result"/>
+</operation>
+<operation name="UpdateNextofKin">
+<input name="UpdateNextofKin" message="tns:UpdateNextofKin"/>
+<output name="UpdateNextofKin_Result" message="tns:UpdateNextofKin_Result"/>
+</operation>
+<operation name="UpdateJointAccountHolder">
+<input name="UpdateJointAccountHolder" message="tns:UpdateJointAccountHolder"/>
+<output name="UpdateJointAccountHolder_Result" message="tns:UpdateJointAccountHolder_Result"/>
+</operation>
+<operation name="CreateAllClientDetails">
+<input name="CreateAllClientDetails" message="tns:CreateAllClientDetails"/>
+<output name="CreateAllClientDetails_Result" message="tns:CreateAllClientDetails_Result"/>
+</operation>
+<operation name="PostdailyDistributableIncome">
+<input name="PostdailyDistributableIncome" message="tns:PostdailyDistributableIncome"/>
+<output name="PostdailyDistributableIncome_Result" message="tns:PostdailyDistributableIncome_Result"/>
+</operation>
+<operation name="GetClientDetails">
+<input name="GetClientDetails" message="tns:GetClientDetails"/>
+<output name="GetClientDetails_Result" message="tns:GetClientDetails_Result"/>
+</operation>
+<operation name="GetClientAccountDetails">
+<input name="GetClientAccountDetails" message="tns:GetClientAccountDetails"/>
+<output name="GetClientAccountDetails_Result" message="tns:GetClientAccountDetails_Result"/>
+</operation>
+<operation name="GetKYCTier">
+<input name="GetKYCTier" message="tns:GetKYCTier"/>
+<output name="GetKYCTier_Result" message="tns:GetKYCTier_Result"/>
+</operation>
+<operation name="GetRedemptionStatus">
+<input name="GetRedemptionStatus" message="tns:GetRedemptionStatus"/>
+<output name="GetRedemptionStatus_Result" message="tns:GetRedemptionStatus_Result"/>
+</operation>
+<operation name="GetSubscriptionStatus">
+<input name="GetSubscriptionStatus" message="tns:GetSubscriptionStatus"/>
+<output name="GetSubscriptionStatus_Result" message="tns:GetSubscriptionStatus_Result"/>
+</operation>
+<operation name="GetOnlineIndemnityStatus">
+<input name="GetOnlineIndemnityStatus" message="tns:GetOnlineIndemnityStatus"/>
+<output name="GetOnlineIndemnityStatus_Result" message="tns:GetOnlineIndemnityStatus_Result"/>
+</operation>
+<operation name="GetDirectDebitStatus">
+<input name="GetDirectDebitStatus" message="tns:GetDirectDebitStatus"/>
+<output name="GetDirectDebitStatus_Result" message="tns:GetDirectDebitStatus_Result"/>
+</operation>
+<operation name="UpdateRedemptionBankResponse">
+<input name="UpdateRedemptionBankResponse" message="tns:UpdateRedemptionBankResponse"/>
+<output name="UpdateRedemptionBankResponse_Result" message="tns:UpdateRedemptionBankResponse_Result"/>
+</operation>
+<operation name="UpdateTransferBankResponse">
+<input name="UpdateTransferBankResponse" message="tns:UpdateTransferBankResponse"/>
+<output name="UpdateTransferBankResponse_Result" message="tns:UpdateTransferBankResponse_Result"/>
+</operation>
+<operation name="UpdateBankDetails">
+<input name="UpdateBankDetails" message="tns:UpdateBankDetails"/>
+<output name="UpdateBankDetails_Result" message="tns:UpdateBankDetails_Result"/>
+</operation>
+<operation name="GetClientNextofKinDetails">
+<input name="GetClientNextofKinDetails" message="tns:GetClientNextofKinDetails"/>
+<output name="GetClientNextofKinDetails_Result" message="tns:GetClientNextofKinDetails_Result"/>
+</operation>
+<operation name="GetClientKycLinks">
+<input name="GetClientKycLinks" message="tns:GetClientKycLinks"/>
+<output name="GetClientKycLinks_Result" message="tns:GetClientKycLinks_Result"/>
+</operation>
+<operation name="GetJointHolderDetails">
+<input name="GetJointHolderDetails" message="tns:GetJointHolderDetails"/>
+<output name="GetJointHolderDetails_Result" message="tns:GetJointHolderDetails_Result"/>
+</operation>
+<operation name="ReverseSubscription">
+<input name="ReverseSubscription" message="tns:ReverseSubscription"/>
+<output name="ReverseSubscription_Result" message="tns:ReverseSubscription_Result"/>
+</operation>
+<operation name="GetAccountNoFromOldMembershipID">
+<input name="GetAccountNoFromOldMembershipID" message="tns:GetAccountNoFromOldMembershipID"/>
+<output name="GetAccountNoFromOldMembershipID_Result" message="tns:GetAccountNoFromOldMembershipID_Result"/>
+</operation>
+<operation name="ReverseRedemption">
+<input name="ReverseRedemption" message="tns:ReverseRedemption"/>
+<output name="ReverseRedemption_Result" message="tns:ReverseRedemption_Result"/>
+</operation>
+<operation name="GetCaseStatus">
+<input name="GetCaseStatus" message="tns:GetCaseStatus"/>
+<output name="GetCaseStatus_Result" message="tns:GetCaseStatus_Result"/>
+</operation>
+<operation name="ValidateRedemption">
+<input name="ValidateRedemption" message="tns:ValidateRedemption"/>
+<output name="ValidateRedemption_Result" message="tns:ValidateRedemption_Result"/>
+</operation>
+<operation name="ValidateValuedateAgainstPrice">
+<input name="ValidateValuedateAgainstPrice" message="tns:ValidateValuedateAgainstPrice"/>
+<output name="ValidateValuedateAgainstPrice_Result" message="tns:ValidateValuedateAgainstPrice_Result"/>
+</operation>
+<operation name="GetSTPTransactions">
+<input name="GetSTPTransactions" message="tns:GetSTPTransactions"/>
+<output name="GetSTPTransactions_Result" message="tns:GetSTPTransactions_Result"/>
+</operation>
+<operation name="GetTreasuryBankResponse">
+<input name="GetTreasuryBankResponse" message="tns:GetTreasuryBankResponse"/>
+<output name="GetTreasuryBankResponse_Result" message="tns:GetTreasuryBankResponse_Result"/>
+</operation>
+<operation name="CRMCreateSubscription">
+<input name="CRMCreateSubscription" message="tns:CRMCreateSubscription"/>
+<output name="CRMCreateSubscription_Result" message="tns:CRMCreateSubscription_Result"/>
+</operation>
+<operation name="CreateReferral">
+<input name="CreateReferral" message="tns:CreateReferral"/>
+<output name="CreateReferral_Result" message="tns:CreateReferral_Result"/>
+</operation>
+<operation name="GetClientLoans">
+<input name="GetClientLoans" message="tns:GetClientLoans"/>
+<output name="GetClientLoans_Result" message="tns:GetClientLoans_Result"/>
+</operation>
+<operation name="GetLoanRepaymentSchedule">
+<input name="GetLoanRepaymentSchedule" message="tns:GetLoanRepaymentSchedule"/>
+<output name="GetLoanRepaymentSchedule_Result" message="tns:GetLoanRepaymentSchedule_Result"/>
+</operation>
+<operation name="CreatePortfolioRedemption">
+<input name="CreatePortfolioRedemption" message="tns:CreatePortfolioRedemption"/>
+<output name="CreatePortfolioRedemption_Result" message="tns:CreatePortfolioRedemption_Result"/>
+</operation>
+<operation name="GetPostedPortfolioRedemption">
+<input name="GetPostedPortfolioRedemption" message="tns:GetPostedPortfolioRedemption"/>
+<output name="GetPostedPortfolioRedemption_Result" message="tns:GetPostedPortfolioRedemption_Result"/>
+</operation>
+<operation name="GetPrice">
+<input name="GetPrice" message="tns:GetPrice"/>
+<output name="GetPrice_Result" message="tns:GetPrice_Result"/>
+</operation>
+<operation name="GetFundPrices">
+<input name="GetFundPrices" message="tns:GetFundPrices"/>
+<output name="GetFundPrices_Result" message="tns:GetFundPrices_Result"/>
+</operation>
+<operation name="GetDistributableIncome">
+<input name="GetDistributableIncome" message="tns:GetDistributableIncome"/>
+<output name="GetDistributableIncome_Result" message="tns:GetDistributableIncome_Result"/>
+</operation>
+<operation name="CheckIfSTP">
+<input name="CheckIfSTP" message="tns:CheckIfSTP"/>
+<output name="CheckIfSTP_Result" message="tns:CheckIfSTP_Result"/>
+</operation>
+<operation name="CreateOnlineIndemnitySTP">
+<input name="CreateOnlineIndemnitySTP" message="tns:CreateOnlineIndemnitySTP"/>
+<output name="CreateOnlineIndemnitySTP_Result" message="tns:CreateOnlineIndemnitySTP_Result"/>
+</operation>
+<operation name="DeactivateOnlineIndemnitySTP">
+<input name="DeactivateOnlineIndemnitySTP" message="tns:DeactivateOnlineIndemnitySTP"/>
+<output name="DeactivateOnlineIndemnitySTP_Result" message="tns:DeactivateOnlineIndemnitySTP_Result"/>
+</operation>
+<operation name="CreateSubscriptionHeader">
+<input name="CreateSubscriptionHeader" message="tns:CreateSubscriptionHeader"/>
+<output name="CreateSubscriptionHeader_Result" message="tns:CreateSubscriptionHeader_Result"/>
+</operation>
+<operation name="CreateSubscriptionLines">
+<input name="CreateSubscriptionLines" message="tns:CreateSubscriptionLines"/>
+<output name="CreateSubscriptionLines_Result" message="tns:CreateSubscriptionLines_Result"/>
+</operation>
+<operation name="CreateGoals">
+<input name="CreateGoals" message="tns:CreateGoals"/>
+<output name="CreateGoals_Result" message="tns:CreateGoals_Result"/>
+</operation>
+<operation name="CreateGoalsRedemption">
+<input name="CreateGoalsRedemption" message="tns:CreateGoalsRedemption"/>
+<output name="CreateGoalsRedemption_Result" message="tns:CreateGoalsRedemption_Result"/>
+</operation>
+<operation name="CreateGoalsSubscription">
+<input name="CreateGoalsSubscription" message="tns:CreateGoalsSubscription"/>
+<output name="CreateGoalsSubscription_Result" message="tns:CreateGoalsSubscription_Result"/>
+</operation>
+<operation name="GetPostedRedemptions">
+<input name="GetPostedRedemptions" message="tns:GetPostedRedemptions"/>
+<output name="GetPostedRedemptions_Result" message="tns:GetPostedRedemptions_Result"/>
+</operation>
+<operation name="CreateNewClient">
+<input name="CreateNewClient" message="tns:CreateNewClient"/>
+<output name="CreateNewClient_Result" message="tns:CreateNewClient_Result"/>
+</operation>
+<operation name="UpdateNewClient">
+<input name="UpdateNewClient" message="tns:UpdateNewClient"/>
+<output name="UpdateNewClient_Result" message="tns:UpdateNewClient_Result"/>
+</operation>
+<operation name="CreateClientAccount">
+<input name="CreateClientAccount" message="tns:CreateClientAccount"/>
+<output name="CreateClientAccount_Result" message="tns:CreateClientAccount_Result"/>
+</operation>
+<operation name="UpdateClientAccount">
+<input name="UpdateClientAccount" message="tns:UpdateClientAccount"/>
+<output name="UpdateClientAccount_Result" message="tns:UpdateClientAccount_Result"/>
+</operation>
+<operation name="CreateNextofKin">
+<input name="CreateNextofKin" message="tns:CreateNextofKin"/>
+<output name="CreateNextofKin_Result" message="tns:CreateNextofKin_Result"/>
+</operation>
+<operation name="GetMutualFundsDistributableIncome">
+<input name="GetMutualFundsDistributableIncome" message="tns:GetMutualFundsDistributableIncome"/>
+<output name="GetMutualFundsDistributableIncome_Result" message="tns:GetMutualFundsDistributableIncome_Result"/>
+</operation>
+<operation name="GetNomineeDividend">
+<input name="GetNomineeDividend" message="tns:GetNomineeDividend"/>
+<output name="GetNomineeDividend_Result" message="tns:GetNomineeDividend_Result"/>
+</operation>
+<operation name="GetMutualFundDividendPayment">
+<input name="GetMutualFundDividendPayment" message="tns:GetMutualFundDividendPayment"/>
+<output name="GetMutualFundDividendPayment_Result" message="tns:GetMutualFundDividendPayment_Result"/>
+</operation>
+<operation name="GetMutualFundDividendReinvest">
+<input name="GetMutualFundDividendReinvest" message="tns:GetMutualFundDividendReinvest"/>
+<output name="GetMutualFundDividendReinvest_Result" message="tns:GetMutualFundDividendReinvest_Result"/>
+</operation>
+<operation name="CheckClientNOK">
+<input name="CheckClientNOK" message="tns:CheckClientNOK"/>
+<output name="CheckClientNOK_Result" message="tns:CheckClientNOK_Result"/>
+</operation>
+<operation name="GetChargeOnEarlyWithdrawal">
+<input name="GetChargeOnEarlyWithdrawal" message="tns:GetChargeOnEarlyWithdrawal"/>
+<output name="GetChargeOnEarlyWithdrawal_Result" message="tns:GetChargeOnEarlyWithdrawal_Result"/>
+</operation>
+<operation name="IsDuplicateRedemption">
+<input name="IsDuplicateRedemption" message="tns:IsDuplicateRedemption"/>
+<output name="IsDuplicateRedemption_Result" message="tns:IsDuplicateRedemption_Result"/>
+</operation>
+</portType>
+<binding name="DynamicsNavService_Binding" type="tns:DynamicsNavService_Port">
+<binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="UpdateClient">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateClient" style="document"/>
+<input name="UpdateClient">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateClient_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateClient">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateClient" style="document"/>
+<input name="CreateClient">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateClient_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="ChangeCLientStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:ChangeCLientStatus" style="document"/>
+<input name="ChangeCLientStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="ChangeCLientStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateClientAccountBackup">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateClientAccountBackup" style="document"/>
+<input name="CreateClientAccountBackup">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateClientAccountBackup_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateClientAccountBackup">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateClientAccountBackup" style="document"/>
+<input name="UpdateClientAccountBackup">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateClientAccountBackup_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateClientAccountStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateClientAccountStatus" style="document"/>
+<input name="UpdateClientAccountStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateClientAccountStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateCaution">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateCaution" style="document"/>
+<input name="CreateCaution">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateCaution_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateLien">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateLien" style="document"/>
+<input name="CreateLien">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateLien_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateSubscription">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateSubscription" style="document"/>
+<input name="CreateSubscription">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateSubscription_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateStatementLines">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateStatementLines" style="document"/>
+<input name="CreateStatementLines">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateStatementLines_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateRedemptionBackup">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateRedemptionBackup" style="document"/>
+<input name="CreateRedemptionBackup">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateRedemptionBackup_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateRedemption" style="document"/>
+<input name="CreateRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateOnlineIndemnityRequest">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateOnlineIndemnityRequest" style="document"/>
+<input name="CreateOnlineIndemnityRequest">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateOnlineIndemnityRequest_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateDirectDebitRequest">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateDirectDebitRequest" style="document"/>
+<input name="CreateDirectDebitRequest">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateDirectDebitRequest_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateKycLinks">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateKycLinks" style="document"/>
+<input name="CreateKycLinks">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateKycLinks_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateNextofKinBackup">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateNextofKinBackup" style="document"/>
+<input name="CreateNextofKinBackup">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateNextofKinBackup_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateJointAccountHolder">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateJointAccountHolder" style="document"/>
+<input name="CreateJointAccountHolder">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateJointAccountHolder_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreatefundPrice">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreatefundPrice" style="document"/>
+<input name="CreatefundPrice">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreatefundPrice_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetAccountBalance">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetAccountBalance" style="document"/>
+<input name="GetAccountBalance">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetAccountBalance_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetAccountDividend">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetAccountDividend" style="document"/>
+<input name="GetAccountDividend">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetAccountDividend_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientTransactions">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientTransactions" style="document"/>
+<input name="GetClientTransactions">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientTransactions_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientRedemptionstoPushtobank">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientRedemptionstoPushtobank" style="document"/>
+<input name="GetClientRedemptionstoPushtobank">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientRedemptionstoPushtobank_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientTransferstopushtoBank">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientTransferstopushtoBank" style="document"/>
+<input name="GetClientTransferstopushtoBank">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientTransferstopushtoBank_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="MarkRedemptionsaspushedtoBank">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:MarkRedemptionsaspushedtoBank" style="document"/>
+<input name="MarkRedemptionsaspushedtoBank">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="MarkRedemptionsaspushedtoBank_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="MarkTransferaspushedtoBank">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:MarkTransferaspushedtoBank" style="document"/>
+<input name="MarkTransferaspushedtoBank">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="MarkTransferaspushedtoBank_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateKycLinks">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateKycLinks" style="document"/>
+<input name="UpdateKycLinks">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateKycLinks_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateNextofKin">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateNextofKin" style="document"/>
+<input name="UpdateNextofKin">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateNextofKin_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateJointAccountHolder">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateJointAccountHolder" style="document"/>
+<input name="UpdateJointAccountHolder">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateJointAccountHolder_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateAllClientDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateAllClientDetails" style="document"/>
+<input name="CreateAllClientDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateAllClientDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="PostdailyDistributableIncome">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:PostdailyDistributableIncome" style="document"/>
+<input name="PostdailyDistributableIncome">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="PostdailyDistributableIncome_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientDetails" style="document"/>
+<input name="GetClientDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientAccountDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientAccountDetails" style="document"/>
+<input name="GetClientAccountDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientAccountDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetKYCTier">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetKYCTier" style="document"/>
+<input name="GetKYCTier">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetKYCTier_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetRedemptionStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetRedemptionStatus" style="document"/>
+<input name="GetRedemptionStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetRedemptionStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetSubscriptionStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetSubscriptionStatus" style="document"/>
+<input name="GetSubscriptionStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetSubscriptionStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetOnlineIndemnityStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetOnlineIndemnityStatus" style="document"/>
+<input name="GetOnlineIndemnityStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetOnlineIndemnityStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetDirectDebitStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetDirectDebitStatus" style="document"/>
+<input name="GetDirectDebitStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetDirectDebitStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateRedemptionBankResponse">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateRedemptionBankResponse" style="document"/>
+<input name="UpdateRedemptionBankResponse">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateRedemptionBankResponse_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateTransferBankResponse">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateTransferBankResponse" style="document"/>
+<input name="UpdateTransferBankResponse">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateTransferBankResponse_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateBankDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateBankDetails" style="document"/>
+<input name="UpdateBankDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateBankDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientNextofKinDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientNextofKinDetails" style="document"/>
+<input name="GetClientNextofKinDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientNextofKinDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientKycLinks">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientKycLinks" style="document"/>
+<input name="GetClientKycLinks">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientKycLinks_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetJointHolderDetails">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetJointHolderDetails" style="document"/>
+<input name="GetJointHolderDetails">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetJointHolderDetails_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="ReverseSubscription">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:ReverseSubscription" style="document"/>
+<input name="ReverseSubscription">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="ReverseSubscription_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetAccountNoFromOldMembershipID">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetAccountNoFromOldMembershipID" style="document"/>
+<input name="GetAccountNoFromOldMembershipID">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetAccountNoFromOldMembershipID_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="ReverseRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:ReverseRedemption" style="document"/>
+<input name="ReverseRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="ReverseRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetCaseStatus">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetCaseStatus" style="document"/>
+<input name="GetCaseStatus">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetCaseStatus_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="ValidateRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:ValidateRedemption" style="document"/>
+<input name="ValidateRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="ValidateRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="ValidateValuedateAgainstPrice">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:ValidateValuedateAgainstPrice" style="document"/>
+<input name="ValidateValuedateAgainstPrice">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="ValidateValuedateAgainstPrice_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetSTPTransactions">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetSTPTransactions" style="document"/>
+<input name="GetSTPTransactions">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetSTPTransactions_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetTreasuryBankResponse">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetTreasuryBankResponse" style="document"/>
+<input name="GetTreasuryBankResponse">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetTreasuryBankResponse_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CRMCreateSubscription">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CRMCreateSubscription" style="document"/>
+<input name="CRMCreateSubscription">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CRMCreateSubscription_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateReferral">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateReferral" style="document"/>
+<input name="CreateReferral">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateReferral_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetClientLoans">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetClientLoans" style="document"/>
+<input name="GetClientLoans">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetClientLoans_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetLoanRepaymentSchedule">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetLoanRepaymentSchedule" style="document"/>
+<input name="GetLoanRepaymentSchedule">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetLoanRepaymentSchedule_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreatePortfolioRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreatePortfolioRedemption" style="document"/>
+<input name="CreatePortfolioRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreatePortfolioRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetPostedPortfolioRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetPostedPortfolioRedemption" style="document"/>
+<input name="GetPostedPortfolioRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetPostedPortfolioRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetPrice">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetPrice" style="document"/>
+<input name="GetPrice">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetPrice_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetFundPrices">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetFundPrices" style="document"/>
+<input name="GetFundPrices">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetFundPrices_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetDistributableIncome">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetDistributableIncome" style="document"/>
+<input name="GetDistributableIncome">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetDistributableIncome_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CheckIfSTP">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CheckIfSTP" style="document"/>
+<input name="CheckIfSTP">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CheckIfSTP_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateOnlineIndemnitySTP">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateOnlineIndemnitySTP" style="document"/>
+<input name="CreateOnlineIndemnitySTP">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateOnlineIndemnitySTP_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="DeactivateOnlineIndemnitySTP">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:DeactivateOnlineIndemnitySTP" style="document"/>
+<input name="DeactivateOnlineIndemnitySTP">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="DeactivateOnlineIndemnitySTP_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateSubscriptionHeader">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateSubscriptionHeader" style="document"/>
+<input name="CreateSubscriptionHeader">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateSubscriptionHeader_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateSubscriptionLines">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateSubscriptionLines" style="document"/>
+<input name="CreateSubscriptionLines">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateSubscriptionLines_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateGoals">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateGoals" style="document"/>
+<input name="CreateGoals">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateGoals_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateGoalsRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateGoalsRedemption" style="document"/>
+<input name="CreateGoalsRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateGoalsRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateGoalsSubscription">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateGoalsSubscription" style="document"/>
+<input name="CreateGoalsSubscription">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateGoalsSubscription_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetPostedRedemptions">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetPostedRedemptions" style="document"/>
+<input name="GetPostedRedemptions">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetPostedRedemptions_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateNewClient">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateNewClient" style="document"/>
+<input name="CreateNewClient">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateNewClient_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateNewClient">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateNewClient" style="document"/>
+<input name="UpdateNewClient">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateNewClient_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateClientAccount">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateClientAccount" style="document"/>
+<input name="CreateClientAccount">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateClientAccount_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="UpdateClientAccount">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:UpdateClientAccount" style="document"/>
+<input name="UpdateClientAccount">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="UpdateClientAccount_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CreateNextofKin">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CreateNextofKin" style="document"/>
+<input name="CreateNextofKin">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CreateNextofKin_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetMutualFundsDistributableIncome">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetMutualFundsDistributableIncome" style="document"/>
+<input name="GetMutualFundsDistributableIncome">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetMutualFundsDistributableIncome_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetNomineeDividend">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetNomineeDividend" style="document"/>
+<input name="GetNomineeDividend">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetNomineeDividend_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetMutualFundDividendPayment">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetMutualFundDividendPayment" style="document"/>
+<input name="GetMutualFundDividendPayment">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetMutualFundDividendPayment_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetMutualFundDividendReinvest">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetMutualFundDividendReinvest" style="document"/>
+<input name="GetMutualFundDividendReinvest">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetMutualFundDividendReinvest_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="CheckClientNOK">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:CheckClientNOK" style="document"/>
+<input name="CheckClientNOK">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="CheckClientNOK_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="GetChargeOnEarlyWithdrawal">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:GetChargeOnEarlyWithdrawal" style="document"/>
+<input name="GetChargeOnEarlyWithdrawal">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="GetChargeOnEarlyWithdrawal_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+<operation name="IsDuplicateRedemption">
+<operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsNavService:IsDuplicateRedemption" style="document"/>
+<input name="IsDuplicateRedemption">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</input>
+<output name="IsDuplicateRedemption_Result">
+<body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="DynamicsNavService">
+<port name="DynamicsNavService_Port" binding="tns:DynamicsNavService_Binding">
+<address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://www.webserviceurl/Codeunit/DynamicsNavService?wsdl"/>
+</port>
+</service>
+</definitions>
