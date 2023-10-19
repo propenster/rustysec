@@ -13,6 +13,8 @@
  - [x] Start API Specification Type Definition Recognition
  - [x] Create SECURITY THREAT CRITICALITY INDEX - LOW, MEDIUM, HIGH, CRITICAL
  - [ ] Start Parsing Definition FILES - Swagger.json for OPENAPI and WSDLs
+    - [x] Lexing JSON already implementation
+    - [ ] Parsing JSON
  - [ ] Collate Fixables -> Issues from Results of Parsing
  - [ ] Add OWASP-Top-10 LINKS to Fixable Display
  - [ ] Make it into one big badass CLI, API tool etc.

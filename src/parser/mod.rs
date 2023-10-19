@@ -1,4 +1,3 @@
-mod lexer;
 
 use clap::error;
 use serde::Deserialize;
@@ -90,7 +89,7 @@ fn parse_soap_wsdl(text: &str) -> Result<Vec<Fixable>, ParserError> {
 /// <br>It takes a string slice of the content of the OPEN Spec a.k.a swagger.json
 fn parse_open_api_rest(text: &str) -> Result<Vec<Fixable>, ParserError> {
     let mut fixables: Vec<Fixable> = Vec::new();
-    let mut finalScore: u8 = 100; //final weight score...
+    let mut final_core: u8 = 100; //final weight score...
     println!("Input Text: {}", text);
 
     //grabables
@@ -104,7 +103,7 @@ fn parse_open_api_rest(text: &str) -> Result<Vec<Fixable>, ParserError> {
     let server_base_url_exists = has_non_empty_array_item(&master_piece, "servers", "url");
     if !server_base_url_exists {
         fixables.push(Fixable::new("Invalid server. You must provide a server BASEURL for your API. Read OpenAPI specification standards for more information", 0, WeightScore::Critical));
-        modify_score(&mut finalScore, WeightScore::CRITICAL_VALUE);
+        modify_score(&mut final_core, WeightScore::CRITICAL_VALUE);
     }
     // if let Some(servers) = master_piece.get("servers"){
     //     let server_base_url_exists = has_non_empty_array_item(servers);

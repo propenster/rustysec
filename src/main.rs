@@ -1,11 +1,13 @@
 mod parser;
 mod openapi;
+mod lexer;
 use std::{fs, path::{Path, PathBuf}, io::Error};
 
 use oapi::OApi;
-use sppparse::SparseRoot;use serde_json::Value;
+use sppparse::SparseRoot;
+use serde_json::Value;
 
-use crate::openapi::Scanner;
+use crate::{openapi::Scanner, lexer::{Token, Lexer}};
 
 
 fn run(text: &str) -> anyhow::Result<()>{
@@ -27,9 +29,12 @@ fn main() {
     let json: Value = serde_json::from_str(&open_api_text)
         .expect("Could not parse JSON text");
 
-    let paths: &Value = json
-        .get("paths")
-        .unwrap_or_else(|| panic!("'paths' field not found in JSON"));
+        if let Some(_) = json.get("paths") {
+            //println!("{:?}", paths);
+            println!("Paths exists in the json text");
+        } else {
+            println!("The 'paths' array does not exist in the JSON.");
+        }
 
     //println!("Paths: {:?}", paths);
 
@@ -50,11 +55,12 @@ fn main() {
     }
     "#;
     let mut tokens: Vec<Token> = Vec::new();
-    while let Some(token) = lexer::Lexer::next_token(){
-
+    let mut lexer: Lexer = Lexer::new(json_string);
+    while let Some(token) = lexer.next_token(){
+        tokens.push(token);
     }
 
-
+    println!("{:?}", tokens);
 
     println!("Successfully retrieved open api file >>> {}", open_api_text);
 

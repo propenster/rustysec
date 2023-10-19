@@ -1,4 +1,4 @@
-use super::ParserError;
+use crate::parser::ParserError;
 
 #[derive(Debug, Clone)]
 pub struct TextSpan {
@@ -87,65 +87,86 @@ impl<'a> Lexer<'a> {
             self.current_pos += 1;
             return Some(Token::new(
                 TokenKind::Eof,
-                TextSpan::new(0, 0, "\0".to_string()),
+                TextSpan::new(self.current_pos, self.current_pos, "\0".to_string()),
             ));
         }
 
-        let c = self.current_char();
-        return c.map(|c| {
-            let start = self.current_pos;
-            let mut kind = TokenKind::Bad;
+        self.consume_whitespace();
 
-            // if Self::is_whitespace(&c){
-            //     //skip it...
-            //     self.consume_whitespace();
-            // }else if c == ':'{
-            //     kind = TokenKind::Colon
-            // }else if c == ','{
-            //     kind = TokenKind::Comma
-            // }
+        let mut start = self.current_pos;
+        let mut kind = TokenKind::Bad;
 
+        if let Some(c) = self.input.chars().nth(self.current_pos) {
             match &c {
-                ':' => kind = TokenKind::Colon,
-                ',' => kind = TokenKind::Comma,
-                '(' => kind = TokenKind::LeftParen,
-                ')' => kind = TokenKind::RightParen,
-                '{' => kind = TokenKind::LeftCurlyBrace,
-                '}' => kind = TokenKind::RightCurlyBrace,
-                '[' => kind = TokenKind::LeftSquareBrace,
-                ']' => kind = TokenKind::RightSquareBrace,
+                ':' => {
+                    kind = TokenKind::Colon;
+                    self.current_pos += 1;
+                }
+                ',' => {
+                    kind = TokenKind::Comma;
+                    self.current_pos += 1;
+                }
+                '(' => {
+                    kind = TokenKind::LeftParen;
+                    self.current_pos += 1;
+                }
+                ')' => {
+                    kind = TokenKind::RightParen;
+                    self.current_pos += 1;
+                }
+                '{' => {
+                    kind = TokenKind::LeftCurlyBrace;
+                    self.current_pos += 1;
+                }
+                '}' => {
+                    kind = TokenKind::RightCurlyBrace;
+                    self.current_pos += 1;
+                }
+                '[' => {
+                    kind = TokenKind::LeftSquareBrace;
+                    self.current_pos += 1;
+                }
+                ']' => {
+                    kind = TokenKind::RightSquareBrace;
+                    self.current_pos += 1;
+                }
                 '"' => {
-                    //make a literal... meaning "key": "value" or "key": {}
-                    //consume string...
+                    // Make a literal... meaning "key": "value" or "key": {}
+                    self.current_pos += 1; //escape the opening \"
+                    start = self.current_pos;
                     self.consume_literal_strings_key_or_value();
                     kind = TokenKind::LiteralStringsKeyOrValue;
                 }
                 _ => {
-                    if Self::is_whitespace(&c) {
-                        self.consume_whitespace()
-                    }else if c.is_numeric(){
+                    if c.is_numeric() {
                         self.consume_numbers().unwrap_or_else(|e| {
-                            panic!("{}", e)
+                            panic!("{}", e);
                         });
-                    }else{
-                        unimplemented!()
+                    } else {
+                        unimplemented!();
                     }
                 }
             }
+        }else{
+            println!("No more characters to consume");
+            return None
+        }
 
-            let end = self.current_pos;
-            let literal = self.input[start..end].to_string();
-            let span = TextSpan::new(start, end, literal);
+        let end = self.current_pos;
+        let literal = self.input[start..end].to_string();
+        let span = TextSpan::new(start, end, literal);
 
-            Token::new(kind, span)
-        });
+        self.current_pos = end;
+
+        self.current_pos += 1;
+
+        Some(Token::new(kind, span))
     }
 
     fn current_char(&mut self) -> Option<char> {
         self.input.chars().nth(self.current_pos)
     }
     fn next_char(&mut self) -> Option<char> {
-        //self.current_pos +=1;
         self.input.chars().nth(self.current_pos + 1)
     }
     fn consume(&mut self) -> Option<char> {
@@ -157,7 +178,13 @@ impl<'a> Lexer<'a> {
         c
     }
     fn consume_whitespace(&mut self) {
-        self.current_pos += 1;
+        while let Some(c) = self.input.chars().nth(self.current_pos) {
+            if c.is_whitespace() {
+                self.current_pos += c.len_utf8();
+            } else {
+                break;
+            }
+        }
     }
 
     pub fn extract_open_api_path() -> Option<()> {
@@ -170,7 +197,6 @@ impl<'a> Lexer<'a> {
     }
 
     fn consume_literal_strings_key_or_value(&mut self) {
-        self.current_pos += 1;
         while let Some(c) = self.input.chars().nth(self.current_pos) {
             if c == '"' {
                 break;
@@ -182,17 +208,19 @@ impl<'a> Lexer<'a> {
     fn consume_numbers(&mut self) -> Result<(), ParserError> {
         self.current_pos += 1;
         let mut dots: u8 = 0;
-        while let Some(c) = self.input.chars().nth(self.current_pos){
-            if c == '.'{
+        while let Some(c) = self.input.chars().nth(self.current_pos) {
+            if c == '.' {
                 dots += 1;
             }
-            if !c.is_numeric() && c != '.'{
+            if !c.is_numeric() && c != '.' {
                 break;
             }
             self.current_pos += 1; //next_char method will be created to make this easier...
         }
-        if dots > 1{
-            return Err(ParserError::NumberFormatError("dots in a decimal number cannot be greater than 1".into()))
+        if dots > 1 {
+            return Err(ParserError::NumberFormatError(
+                "dots in a decimal number cannot be greater than 1".into(),
+            ));
         }
 
         Ok(())
