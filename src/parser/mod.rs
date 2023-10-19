@@ -1,12 +1,14 @@
+mod lexer;
+
 use clap::error;
 use serde::Deserialize;
 use serde_json::Value;
 use thiserror::Error;
 extern crate serde_xml_rs;
 
-use std::{fmt::Display, str::FromStr};
+use std::{fmt::Display, str::FromStr, collections::BTreeMap};
 
-use crate::openapi::{Fixable, WeightScore};
+use crate::openapi::{Fixable, WeightScore, PathItem};
 use std::error::Error;
 
 #[derive(Debug, thiserror::Error)]
@@ -23,6 +25,8 @@ pub enum ParserError {
     ParseFailed(String),
     #[error("{0}")]
     JSONParseError(String),
+    #[error("{0}")]
+    NumberFormatError(String),
 }
 
 #[derive(Debug)]
@@ -110,10 +114,12 @@ fn parse_open_api_rest(text: &str) -> Result<Vec<Fixable>, ParserError> {
     // }
 
     //PATHs -> a.k.a Endpoints -> Object -> has Other objects inside one for each endpoint
+    //let sd: Value= serde_json::from_str(&master_piece.get("paths").unwrap().to_string()).unwrap();
+    //let paths: BTreeMap<String, PathItem> = master_piece["paths"].to_owned();
 
     //COMPONENTS -> Logic Objects -> Request Objects' Schemas... containing fields, validation, regex, strings etc
 
-    //SECURITY -> Array of Security Sechemes Objects
+    //SECURITY -> Array of Security Sechemes Objects -> Actually this part bears 30% of total score...
 
     println!("Fixables / Report {:?}", fixables);
     Ok(fixables)
