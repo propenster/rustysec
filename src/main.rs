@@ -1,16 +1,22 @@
-mod parser;
-mod openapi;
 mod lexer;
-use std::{fs, path::{Path, PathBuf}, io::Error};
+mod openapi;
+mod parser;
+use std::{
+    fs,
+    io::Error,
+    path::{Path, PathBuf},
+};
 
 use oapi::OApi;
-use sppparse::SparseRoot;
 use serde_json::Value;
+use sppparse::SparseRoot;
 
-use crate::{openapi::Scanner, lexer::{Token, Lexer}};
+use crate::{
+    lexer::{Lexer, Token},
+    openapi::{OpenApi, PathData, Scanner},
+};
 
-
-fn run(text: &str) -> anyhow::Result<()>{
+fn run(text: &str) -> anyhow::Result<()> {
     //in the future, when we add CLI capabilities,
     //we extract CLI args here...
     let mut scanner: Scanner = Scanner::new(text);
@@ -22,29 +28,25 @@ fn run(text: &str) -> anyhow::Result<()>{
 fn main() {
     println!("Hello, world!");
     let open_api_path = Path::new("./examples/sample_openapi.json");
-    let open_api_text = fs::read_to_string(open_api_path).unwrap_or_else(|e| {
-        panic!("Error while reading file {}", e)
-    });
+    let open_api_text = fs::read_to_string(open_api_path)
+        .unwrap_or_else(|e| panic!("Error while reading file {}", e));
 
-    let json: Value = serde_json::from_str(&open_api_text)
-        .expect("Could not parse JSON text");
+    // let open_api: OpenApi = serde_json::from_str(&open_api_text).expect("Could not retrieve paths");
+    // if let Some(path) = &open_api.paths{
+    //     for (url, path_data) in path {
+    //         println!("URL: {}", url);
+    //         println!("Path Data >>> {:?}", path_data);
+    //     }
+    // }
 
-        if let Some(_) = json.get("paths") {
-            //println!("{:?}", paths);
-            println!("Paths exists in the json text");
-        } else {
-            println!("The 'paths' array does not exist in the JSON.");
-        }
+    let json: Value = serde_json::from_str(&open_api_text).expect("Could not parse JSON text");
 
-    //println!("Paths: {:?}", paths);
-
-
-    // let doc: OApi = OApi::new(
-    //     SparseRoot::new_from_file(PathBuf::from(
-    //         concat!(env!("CARGO_MANIFEST_DIR"), "/examples/sample_openapi.json") ))
-    //     .expect("to parse the openapi"),
-    // );
-    // let version = doc.check_version().unwrap();
+    if let Some(paths) = json.get("paths") {
+        //println!("{:?}", paths);
+        println!("Paths exists in the json text");
+    } else {
+        println!("The 'paths' array does not exist in the JSON.");
+    }
     //so I gotta write my own open api json parser...
     //println!("Paths object as retrieved from the specification: {}", &paths.to_string());
     let json_string = r#"
@@ -56,7 +58,7 @@ fn main() {
     "#;
     let mut tokens: Vec<Token> = Vec::new();
     let mut lexer: Lexer = Lexer::new(json_string);
-    while let Some(token) = lexer.next_token(){
+    while let Some(token) = lexer.next_token() {
         tokens.push(token);
     }
 
@@ -72,9 +74,6 @@ fn main() {
             std::process::exit(1);
         }
     }
-    
+
     println!("The scanner has completed work");
-
-
-
 }
